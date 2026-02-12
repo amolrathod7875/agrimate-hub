@@ -187,7 +187,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 onValueChange={([val]) => setNpkValues((prev) => ({ ...prev, nitrogen: val }))}
                 min={0}
                 max={200}
-                step={5}
+                step={1}
                 className="py-2"
               />
             </div>
@@ -211,7 +211,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 onValueChange={([val]) => setNpkValues((prev) => ({ ...prev, phosphorus: val }))}
                 min={0}
                 max={200}
-                step={5}
+                step={1}
                 className="py-2"
               />
             </div>
@@ -235,7 +235,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 onValueChange={([val]) => setNpkValues((prev) => ({ ...prev, potassium: val }))}
                 min={0}
                 max={200}
-                step={5}
+                step={1}
                 className="py-2"
               />
             </div>
@@ -352,7 +352,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 onValueChange={([val]) => setEnvValues((prev) => ({ ...prev, rainfall: val }))}
                 min={0}
                 max={300}
-                step={5}
+                step={1}
                 className="py-2"
               />
             </div>

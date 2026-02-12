@@ -1,12 +1,12 @@
 # Agri Sahayak Backend
 
-Django REST API backend for the Agri Sahayak agricultural assistance platform.
+Django REST API backend for the Agri Sahayak agricultural assistance platform with integrated ML models.
 
 ## Features
 
 - **User Management**: Custom user model with farmer profiles
-- **Crop Recommendations**: AI-powered crop suggestions based on soil, climate, and NPK values
-- **Disease Prediction**: Plant disease detection and treatment recommendations
+- **Crop Recommendations**: ✨ **ML-powered** crop suggestions using Random Forest (model.pkl)
+- **Disease Prediction**: ✨ **CNN-based** plant disease detection using TensorFlow (plant_disease_model.h5)
 - **Government Schemes**: Browse agricultural schemes and subsidies
 - **Mandi Prices**: Real-time market prices with price alerts
 - **Marketplace**: Buy and sell agricultural produce directly
@@ -15,6 +15,8 @@ Django REST API backend for the Agri Sahayak agricultural assistance platform.
 
 - Django 5.0
 - Django REST Framework
+- **scikit-learn** - Crop recommendation (Random Forest)
+- **TensorFlow/Keras** - Disease prediction (CNN)
 - SQLite (development) / PostgreSQL (production recommended)
 - Python 3.10+
 
@@ -81,6 +83,20 @@ python manage.py runserver
 
 The API will be available at `http://localhost:8000`
 
+**✅ Check Console Output**: You should see confirmation that ML models are loaded:
+```
+✓ Crop recommendation model loaded successfully
+✓ Disease prediction model loaded successfully
+```
+
+### 7. Test ML Models (Optional)
+
+```bash
+python manage.py test_crop_model
+```
+
+See [ML_MODELS_GUIDE.md](ML_MODELS_GUIDE.md) for detailed ML setup and testing.
+
 ## API Endpoints
 
 ### Users
@@ -118,6 +134,20 @@ The API will be available at `http://localhost:8000`
 ## Admin Panel
 
 Access the Django admin panel at `http://localhost:8000/admin/` with your superuser credentials.
+
+## ML Models
+
+The backend includes two trained ML models:
+
+1. **model.pkl** - Random Forest for crop recommendation
+   - Input: N, P, K, temperature, humidity, pH, rainfall
+   - Output: Top 5 crop recommendations with confidence scores
+
+2. **plant_disease_model.h5** - CNN for disease prediction
+   - Input: Plant leaf image (224x224 RGB)
+   - Output: Disease classification with confidence
+
+**See [ML_MODELS_GUIDE.md](ML_MODELS_GUIDE.md) for complete documentation.**
 
 ## Configuration
 

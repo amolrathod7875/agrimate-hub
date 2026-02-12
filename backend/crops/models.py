@@ -51,7 +51,7 @@ class Crop(models.Model):
 class CropRecommendation(models.Model):
     """Crop recommendations based on user inputs"""
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='crop_recommendations')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='crop_recommendations', null=True, blank=True)
     
     # Input parameters
     nitrogen = models.IntegerField()

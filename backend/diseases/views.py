@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from .models import Disease, DiseasePrediction
 from .serializers import DiseaseSerializer, DiseasePredictionSerializer
-import random
+from .prediction import predict_plant_disease
 
 
 class DiseaseViewSet(viewsets.ModelViewSet):
@@ -26,27 +26,61 @@ class DiseaseViewSet(viewsets.ModelViewSet):
 class DiseasePredictionViewSet(viewsets.ModelViewSet):
     queryset = DiseasePrediction.objects.all()
     serializer_class = DiseasePredictionSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]  # Allow read-only for testing
     
     def get_queryset(self):
         """Filter predictions for current user"""
-        if self.request.user.is_staff:
-            return DiseasePrediction.objects.all()
-        return DiseasePrediction.objects.filter(user=self.request.user)
+        if self.request.user.is_authenticated:
+            if self.request.user.is_staff:
+                return DiseasePrediction.objects.all()
+            return DiseasePrediction.objects.filter(user=self.request.user)
+        return DiseasePrediction.objects.none()
     
     def perform_create(self, serializer):
-        """Process disease prediction"""
-        # Save the prediction
-        prediction = serializer.save(user=self.request.user)
+        """Process disease prediction using CNN model"""
+        # Save the prediction with uploaded image
+        # Allow both authenticated and anonymous users for testing
+        user = self.request.user if self.request.user.is_authenticated else None
+        prediction = serializer.save(user=user)
         
-        # Mock ML prediction (replace with actual ML model)
-        # For now, randomly select a disease
-        diseases = Disease.objects.all()
-        if diseases.exists():
-            predicted_disease = random.choice(diseases)
-            confidence = round(random.uniform(70, 95), 2)
+        # Get the uploaded image
+        image_file = prediction.plant_image
+        
+        # Use ML model for prediction
+        result = predict_plant_disease(image_file, top_k=3)
+        
+        if result.get('success'):
+            top_pred = result['top_prediction']
             
-            prediction.predicted_disease = predicted_disease
-            prediction.confidence = confidence
+            # Try to find matching disease in database
+            disease_name = top_pred['disease']
+            crop_name = top_pred['crop']
+            
+            # Search for disease (case-insensitive, partial match)
+            matching_disease = Disease.objects.filter(
+                name__icontains=disease_name
+            ).first()
+            
+            # Update prediction with results
+            prediction.predicted_disease = matching_disease
+            prediction.confidence = top_pred['confidence']
+            prediction.additional_info = {
+                'crop': crop_name,
+                'is_healthy': top_pred['is_healthy'],
+                'all_predictions': result['all_predictions'],
+                'model_info': result.get('model_info', {})
+            }
             prediction.is_processed = True
+            
+            # Add notes if healthy
+            if top_pred['is_healthy']:
+                prediction.notes = f"The {crop_name} plant appears to be healthy!"
+            else:
+                prediction.notes = f"Detected: {disease_name} in {crop_name}"
+            
+            prediction.save()
+        else:
+            # If prediction failed, mark as processed with error
+            prediction.is_processed = True
+            prediction.notes = f"Error: {result.get('error', 'Prediction failed')}"
             prediction.save()

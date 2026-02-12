@@ -39,7 +39,7 @@ class Disease(models.Model):
 class DiseasePrediction(models.Model):
     """Disease prediction records"""
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='disease_predictions')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='disease_predictions', null=True, blank=True)
     crop = models.ForeignKey(Crop, on_delete=models.SET_NULL, null=True, blank=True)
     
     # Input image
