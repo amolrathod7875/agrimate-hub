@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 60 20% 97%;
+    --foreground: 140 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 25% 15%;
+
+    --primary: 142 43% 32%;
+    --primary-foreground: 60 20% 97%;
+
+    --secondary: 43 80% 60%;
+    --secondary-foreground: 140 25% 15%;
+
+    --muted: 80 15% 92%;
+    --muted-foreground: 140 10% 45%;
+
+    --accent: 30 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 80 15% 85%;
+    --input: 80 15% 85%;
+    --ring: 142 43% 32%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 140 25% 18%;
+    --sidebar-foreground: 60 20% 92%;
+    --sidebar-primary: 43 80% 60%;
+    --sidebar-primary-foreground: 140 25% 15%;
+    --sidebar-accent: 140 20% 24%;
+    --sidebar-accent-foreground: 60 20% 92%;
+    --sidebar-border: 140 15% 28%;
+    --sidebar-ring: 43 80% 60%;
+
+    /* Agriculture - Earthy tones */
+    --agri: 28 48% 33%;
+    --agri-foreground: 60 20% 97%;
+    --agri-light: 28 35% 55%;
+    --agri-dark: 28 48% 22%;
+
+    /* Horticulture - Bright/Fresh */
+    --horti: 32 100% 50%;
+    --horti-foreground: 0 0% 100%;
+    --horti-light: 32 100% 65%;
+    --horti-dark: 32 100% 40%;
+
+    /* Floriculture - Pastel/Pink */
+    --florist: 340 75% 65%;
+    --florist-foreground: 0 0% 100%;
+    --florist-light: 340 75% 80%;
+    --florist-dark: 340 75% 50%;
+  }
+
+  .dark {
+    --background: 140 20% 8%;
+    --foreground: 60 20% 92%;
+
+    --card: 140 20% 12%;
+    --card-foreground: 60 20% 92%;
+
+    --popover: 140 20% 12%;
+    --popover-foreground: 60 20% 92%;
+
+    --primary: 142 43% 42%;
+    --primary-foreground: 60 20% 97%;
+
+    --secondary: 43 70% 45%;
+    --secondary-foreground: 60 20% 97%;
+
+    --muted: 140 15% 18%;
+    --muted-foreground: 80 10% 60%;
+
+    --accent: 30 75% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 140 15% 22%;
+    --input: 140 15% 22%;
+    --ring: 142 43% 42%;
+
+    --sidebar-background: 140 25% 10%;
+    --sidebar-foreground: 60 20% 92%;
+    --sidebar-primary: 43 70% 50%;
+    --sidebar-primary-foreground: 140 25% 10%;
+    --sidebar-accent: 140 20% 16%;
+    --sidebar-accent-foreground: 60 20% 92%;
+    --sidebar-border: 140 15% 18%;
+    --sidebar-ring: 43 70% 50%;
+
+    /* Agriculture - Earthy tones */
+    --agri: 28 50% 40%;
+    --agri-foreground: 60 20% 97%;
+    --agri-light: 28 45% 55%;
+    --agri-dark: 28 50% 28%;
+
+    /* Horticulture - Bright/Fresh */
+    --horti: 32 100% 55%;
+    --horti-foreground: 0 0% 100%;
+    --horti-light: 32 100% 68%;
+    --horti-dark: 32 100% 45%;
+
+    /* Floriculture - Pastel/Pink */
+    --florist: 340 70% 60%;
+    --florist-foreground: 0 0% 100%;
+    --florist-light: 340 70% 75%;
+    --florist-dark: 340 70% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Outfit', 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* Neumorphic Card Styles */
+  .neumorphic-card {
+    @apply bg-neumorphic-light rounded-neumorphic shadow-neumorphic;
+  }
+  
+  .neumorphic-card-dark {
+    @apply bg-neumorphic-dark rounded-neumorphic shadow-[20px_20px_60px_#0d0d0d,-20px_-20px_60px_#1a1a1a];
+  }
+
+  /* Neumorphic Input Styles */
+  .neumorphic-input {
+    @apply bg-neumorphic-light rounded-neumorphic shadow-neumorphic-inset px-4 py-3 outline-none border-none focus:ring-2 focus:ring-primary/30 transition-all;
+  }
+
+  .neumorphic-input-dark {
+    @apply bg-neumorphic-dark shadow-[inset_10px_10px_30px_#0d0d0d,inset_-10px_-10px_30px_#1a1a1a];
+  }
+
+  /* Category Card Hover Effects */
+  .category-card-agri {
+    @apply border-agri/20 hover:border-agri/50 hover:shadow-agri hover:-translate-y-1;
+  }
+
+  .category-card-horti {
+    @apply border-horti/20 hover:border-horti/50 hover:shadow-horti hover:-translate-y-1;
+  }
+
+  .category-card-florist {
+    @apply border-florist/20 hover:border-florist/50 hover:shadow-florist hover:-translate-y-1;
+  }
+
+  /* Dial Gauge Container */
+  .dial-gauge {
+    @apply relative w-32 h-32 rounded-full bg-gradient-to-br from-neumorphic-light to-neumorphic-light shadow-neumorphic flex items-center justify-center;
+  }
+
+  .dial-gauge-dark {
+    @apply bg-gradient-to-br from-neumorphic-dark to-neumorphic-dark;
+  }
+
+  /* Scan Animation Container */
+  .scan-container {
+    @apply relative overflow-hidden;
+  }
+
+  .scan-line {
+    @apply absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-scan-line;
+  }
+}
+
+/* Smooth Page Transitions */
+.page-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+}
+
+/* Marquee Animation */
+.marquee-container {
+  @apply overflow-hidden whitespace-nowrap;
+  max-width: 100vw;
+}
+
+.marquee-content {
+  @apply inline-block;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive Overflow Handling */
+.overflow-hidden {
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+/* Hide scrollbar on marquee */
+.marquee-container::-webkit-scrollbar {
+  display: none;
+}
+
+.marquee-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
