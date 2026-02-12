@@ -92,7 +92,9 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
   const [sunlight, setSunlight] = useState(8);
   const [humidity, setHumidity] = useState(65);
   const [isGreenhouse, setIsGreenhouse] = useState(false);
-  const [result, setResult] = useState<typeof cropResults[0] | null>(null);
+  const [result, setResult] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Get category-specific crops
   const getCategoryCrops = () => {
@@ -116,10 +118,59 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
     return cropMapping[category] || cropResults;
   };
 
-  const handlePredict = () => {
-    const categoryCrops = getCategoryCrops();
-    const randomCrop = categoryCrops[Math.floor(Math.random() * categoryCrops.length)];
-    setResult(randomCrop);
+  const handlePredict = async () => {
+    setIsLoading(true);
+    setError(null);
+    setResult(null);
+
+    const requestData = {
+      nitrogen: npkValues.nitrogen,
+      phosphorus: npkValues.phosphorus,
+      potassium: npkValues.potassium,
+      temperature: envValues.temperature,
+      humidity: envValues.humidity,
+      ph: envValues.soilPh,
+      rainfall: envValues.rainfall,
+    };
+
+    console.log('Sending request:', requestData);
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/crops/recommendations/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        console.error('Error response:', errorData);
+        const errorMessage = errorData 
+          ? `${response.status}: ${JSON.stringify(errorData)}`
+          : `${response.status} ${response.statusText}`;
+        throw new Error(errorMessage);
+      }
+
+      const data = await response.json();
+      console.log('API Response:', data);
+      
+      // Set the top recommendation
+      if (data.recommended_crops && data.recommended_crops.length > 0) {
+        setResult({
+          name: data.recommended_crops[0].crop_name,
+          confidence: data.recommended_crops[0].confidence,
+        });
+      } else {
+        throw new Error('No recommendations received');
+      }
+    } catch (err) {
+      console.error('Error fetching crop recommendation:', err);
+      setError(err instanceof Error ? err.message : 'Failed to get recommendation');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const getThemeColor = () => {
@@ -180,7 +231,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                   Nitrogen (N)
                 </label>
-                <span className={`text-lg font-bold text-${theme.primary}-600`}>{npkValues.nitrogen} kg/ha</span>
+                <span className={`text-lg font-bold text-${theme.primary}-600`}>{npkValues.nitrogen.toFixed(2)} kg/ha</span>
               </div>
               <Slider
                 value={[npkValues.nitrogen]}
@@ -204,7 +255,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                   Phosphorus (P)
                 </label>
-                <span className="text-lg font-bold text-purple-600">{npkValues.phosphorus} kg/ha</span>
+                <span className="text-lg font-bold text-purple-600">{npkValues.phosphorus.toFixed(2)} kg/ha</span>
               </div>
               <Slider
                 value={[npkValues.phosphorus]}
@@ -228,7 +279,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                   Potassium (K)
                 </label>
-                <span className="text-lg font-bold text-orange-600">{npkValues.potassium} kg/ha</span>
+                <span className="text-lg font-bold text-orange-600">{npkValues.potassium.toFixed(2)} kg/ha</span>
               </div>
               <Slider
                 value={[npkValues.potassium]}
@@ -263,14 +314,14 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                   Temperature
                 </label>
-                <span className="text-lg font-bold text-red-600">{envValues.temperature}°C</span>
+                <span className="text-lg font-bold text-red-600">{envValues.temperature.toFixed(2)}°C</span>
               </div>
               <Slider
                 value={[envValues.temperature]}
                 onValueChange={([val]) => setEnvValues((prev) => ({ ...prev, temperature: val }))}
                 min={0}
                 max={50}
-                step={1}
+                step={0.1}
                 className="py-2"
               />
             </div>
@@ -287,14 +338,14 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                   Humidity
                 </label>
-                <span className="text-lg font-bold text-sky-600">{envValues.humidity}%</span>
+                <span className="text-lg font-bold text-sky-600">{envValues.humidity.toFixed(2)}%</span>
               </div>
               <Slider
                 value={[envValues.humidity]}
                 onValueChange={([val]) => setEnvValues((prev) => ({ ...prev, humidity: val }))}
                 min={0}
                 max={100}
-                step={1}
+                step={0.1}
                 className="py-2"
               />
             </div>
@@ -312,7 +363,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                   Soil pH
                 </label>
                 <span className="text-lg font-bold text-emerald-600">
-                  {envValues.soilPh}
+                  {envValues.soilPh.toFixed(2)}
                   <span className="text-xs text-muted-foreground ml-1">
                     {envValues.soilPh < 7 ? 'Acidic' : envValues.soilPh > 7 ? 'Alkaline' : 'Neutral'}
                   </span>
@@ -345,14 +396,14 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                 <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                   Rainfall
                 </label>
-                <span className="text-lg font-bold text-blue-600">{envValues.rainfall} mm</span>
+                <span className="text-lg font-bold text-blue-600">{envValues.rainfall.toFixed(2)} mm</span>
               </div>
               <Slider
                 value={[envValues.rainfall]}
                 onValueChange={([val]) => setEnvValues((prev) => ({ ...prev, rainfall: val }))}
                 min={0}
                 max={300}
-                step={1}
+                step={0.1}
                 className="py-2"
               />
             </div>
@@ -383,14 +434,14 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                     <label className="text-sm font-medium text-muted-foreground">
                       Daily Exposure
                     </label>
-                    <span className="text-lg font-bold text-yellow-600">{sunlight}h</span>
+                    <span className="text-lg font-bold text-yellow-600">{sunlight.toFixed(2)}h</span>
                   </div>
                   <Slider
                     value={[sunlight]}
                     onValueChange={([val]) => setSunlight(val)}
                     min={0}
                     max={14}
-                    step={0.5}
+                    step={0.1}
                     className="py-2"
                   />
                 </div>
@@ -416,14 +467,14 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
                     <label className="text-sm font-medium text-muted-foreground">
                       Relative Humidity
                     </label>
-                    <span className="text-lg font-bold text-cyan-600">{humidity}%</span>
+                    <span className="text-lg font-bold text-cyan-600">{humidity.toFixed(2)}%</span>
                   </div>
                   <Slider
                     value={[humidity]}
                     onValueChange={([val]) => setHumidity(val)}
                     min={0}
                     max={100}
-                    step={1}
+                    step={0.1}
                     className="py-2"
                   />
                 </div>
@@ -473,6 +524,7 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
       <Button
         onClick={handlePredict}
         size="lg"
+        disabled={isLoading}
         className="
           w-full py-4 text-lg font-semibold rounded-full
           bg-gradient-to-r from-emerald-600 to-teal-600
@@ -482,11 +534,25 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
           hover:scale-[1.02]
           active:scale-[0.98]
           transition-all duration-300
+          disabled:opacity-50 disabled:cursor-not-allowed
         "
       >
         <Sprout className="w-5 h-5 mr-2" />
-        Predict Best Crop
+        {isLoading ? 'Analyzing...' : 'Predict Best Crop'}
       </Button>
+
+      {error && (
+        <Card className="border-0 shadow-lg bg-red-50 dark:bg-red-900/20 rounded-2xl overflow-hidden">
+          <CardContent className="p-6">
+            <p className="text-red-600 dark:text-red-400 font-medium">
+              ⚠️ {error}
+            </p>
+            <p className="text-sm text-red-500 dark:text-red-300 mt-2">
+              Make sure the backend server is running on http://127.0.0.1:8000
+            </p>
+          </CardContent>
+        </Card>
+      )}
 
       {result && (
         <Card className={`border-0 shadow-lg bg-gradient-to-r ${theme.bg} rounded-2xl overflow-hidden`}>
@@ -500,8 +566,13 @@ const CropRecommendation = ({ category = "agriculture" }: CropRecommendationProp
               <div className={`w-16 h-16 rounded-2xl bg-${theme.primary}-100 dark:bg-${theme.primary}-900/30 flex items-center justify-center`}>
                 <Sprout className={`w-8 h-8 text-${theme.primary}-500`} />
               </div>
-              <div>
-                <p className="text-3xl font-bold text-foreground">{result.name}</p>
+              <div className="flex-1">
+                <p className="text-3xl font-bold text-foreground capitalize">{result.name}</p>
+                {result.confidence && (
+                  <p className="text-lg font-semibold text-emerald-600 mt-1">
+                    {result.confidence.toFixed(2)}% Confidence
+                  </p>
+                )}
                 <p className="text-muted-foreground text-sm mt-1">
                   Best suited for your {category === "horticulture" ? "garden" : "farm"} conditions.
                 </p>

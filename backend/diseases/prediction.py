@@ -26,9 +26,32 @@ class DiseasePredictionEngine:
         """Load the trained TensorFlow/Keras model"""
         try:
             import tensorflow as tf
+            from tensorflow import keras
             
             model_path = Path(settings.BASE_DIR) / 'plant_disease_model.h5'
-            self.model = tf.keras.models.load_model(str(model_path))
+            
+            # Try loading with custom_objects to handle compatibility issues
+            try:
+                self.model = keras.models.load_model(str(model_path), compile=False)
+            except Exception as e1:
+                # Try alternative loading method
+                try:
+                    # Load weights separately if model architecture issue
+                    self.model = keras.models.load_model(str(model_path))
+                except Exception as e2:
+                    print(f"⚠ Could not load model with standard methods: {e1}")
+                    print(f"   Alternative method also failed: {e2}")
+                    print("   Please re-save your model with: model.save('plant_disease_model.h5', save_format='h5')")
+                    self.model = None
+                    return
+            
+            # Recompile the model
+            if self.model:
+                self.model.compile(
+                    optimizer='adam',
+                    loss='categorical_crossentropy',
+                    metrics=['accuracy']
+                )
             
             # Define class names (update this list based on your model's training classes)
             # These are common plant diseases from PlantVillage dataset

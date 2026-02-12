@@ -57,11 +57,11 @@ class CropRecommendation(models.Model):
     nitrogen = models.IntegerField()
     phosphorus = models.IntegerField()
     potassium = models.IntegerField()
-    temperature = models.DecimalField(max_digits=5, decimal_places=2)
-    humidity = models.DecimalField(max_digits=5, decimal_places=2)
-    ph = models.DecimalField(max_digits=3, decimal_places=1)
-    rainfall = models.DecimalField(max_digits=7, decimal_places=2)
-    state = models.CharField(max_length=100)
+    temperature = models.DecimalField(max_digits=10, decimal_places=8)
+    humidity = models.DecimalField(max_digits=10, decimal_places=8)
+    ph = models.DecimalField(max_digits=10, decimal_places=9)
+    rainfall = models.DecimalField(max_digits=12, decimal_places=7)
+    state = models.CharField(max_length=100, blank=True, null=True)
     
     # Recommended crops
     recommended_crops = models.JSONField(default=list)

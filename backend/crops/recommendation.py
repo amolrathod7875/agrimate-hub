@@ -140,7 +140,14 @@ class CropRecommendationEngine:
         
         # Average score
         avg_score = (n_score + p_score + k_score) / 3
-         using trained Random Forest model.
+        
+        # Cap at 100
+        return min(avg_score, 100)
+    
+    def _ml_based_recommendation(self, nitrogen, phosphorus, potassium, 
+                                 temperature, humidity, ph, rainfall):
+        """
+        Machine Learning based recommendation using trained Random Forest model.
         """
         # Prepare input features in the same order as training: N, P, K, temp, humidity, ph, rainfall
         features = np.array([[nitrogen, phosphorus, potassium, 
@@ -170,13 +177,6 @@ class CropRecommendationEngine:
             })
         
         return recommended_crops
-                continue
-        
-        return recommended_crops
-        """
-        
-        # Placeholder - implement your ML model here
-        raise NotImplementedError("ML-based recommendation not implemented yet")
 
 
 # Create a singleton instance

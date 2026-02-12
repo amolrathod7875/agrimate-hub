@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, AllowAny
 from .models import Crop, CropRecommendation
 from .serializers import CropSerializer, CropRecommendationSerializer
 from .recommendation import get_crop_recommendations
@@ -26,7 +26,15 @@ class CropViewSet(viewsets.ModelViewSet):
 class CropRecommendationViewSet(viewsets.ModelViewSet):
     queryset = CropRecommendation.objects.all()
     serializer_class = CropRecommendationSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]  # Allow read-only for testing
+    
+    def get_permissions(self):
+        """
+        Allow anyone to create recommendations (POST)
+        Require authentication for other actions
+        """
+        if self.action == 'create':
+            return [AllowAny()]
+        return [IsAuthenticatedOrReadOnly()]
     
     def get_queryset(self):
         """Filter recommendations for current user"""
