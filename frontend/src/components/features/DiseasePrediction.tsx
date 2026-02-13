@@ -6,15 +6,19 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const DiseasePrediction = () => {
   const [image, setImage] = useState<string | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [result, setResult] = useState<{ disease: string; confidence: number; cure: string } | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       setImage(e.target?.result as string);
+      setImageFile(file);
       setResult(null);
+      setError(null);
     };
     reader.readAsDataURL(file);
   };
@@ -25,17 +29,58 @@ const DiseasePrediction = () => {
     if (file) handleFile(file);
   };
 
-  const handleAnalyze = () => {
+  const handleAnalyze = async () => {
+    if (!imageFile) {
+      setError('Please upload an image first');
+      return;
+    }
+
     setIsAnalyzing(true);
-    // Simulate analysis with scan animation
-    setTimeout(() => {
-      setIsAnalyzing(false);
-      setResult({
-        disease: "Late Blight (Phytophthora infestans)",
-        confidence: 92.5,
-        cure: "Apply copper-based fungicide (Bordeaux mixture). Remove and destroy infected leaves. Ensure proper air circulation between plants. Avoid overhead irrigation.",
+    setError(null);
+    setResult(null);
+
+    try {
+      const formData = new FormData();
+      formData.append('plant_image', imageFile);
+
+      const response = await fetch('http://127.0.0.1:8000/api/diseases/predictions/', {
+        method: 'POST',
+        body: formData,
       });
-    }, 2500);
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(errorData ? JSON.stringify(errorData) : `${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log('Disease API Response:', data);
+
+      // Extract result from response
+      if (data.additional_info && data.additional_info.all_predictions) {
+        const topPrediction = data.additional_info.all_predictions[0];
+        
+        setResult({
+          disease: topPrediction.disease,
+          confidence: topPrediction.confidence,
+          cure: data.predicted_disease?.treatment || 
+                "Consult with an agricultural expert for proper treatment recommendations.",
+        });
+      } else if (data.notes) {
+        setResult({
+          disease: data.notes,
+          confidence: data.confidence || 0,
+          cure: "No specific treatment needed for healthy plants. Continue regular care.",
+        });
+      } else {
+        throw new Error('Invalid response format from server');
+      }
+    } catch (err) {
+      console.error('Error analyzing disease:', err);
+      setError(err instanceof Error ? err.message : 'Failed to analyze disease');
+    } finally {
+      setIsAnalyzing(false);
+    }
   };
 
   return (
@@ -168,6 +213,20 @@ const DiseasePrediction = () => {
           </Button>
         </CardContent>
       </Card>
+
+      {/* Error Display */}
+      {error && (
+        <Card className="border-red-500/30 bg-red-50 dark:bg-red-900/20">
+          <CardContent className="pt-6">
+            <p className="text-red-600 dark:text-red-400 font-medium">
+              ⚠️ {error}
+            </p>
+            <p className="text-sm text-red-500 dark:text-red-300 mt-2">
+              Make sure the backend server is running and the disease model is loaded.
+            </p>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Results */}
       <AnimatePresence>

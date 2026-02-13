@@ -1,0 +1,396 @@
+State,District,Market,Commodity,Variety,Grade,Arrival_Date,Min_x0020_Price,Max_x0020_Price,Modal_x0020_Price
+"Himachal Pradesh",Kangra,"SMY Palampur","Indian Colza(Sarson)","Indian Colza(Sarson)",FAQ,13/02/2026,2000,2500,2200
+Punjab,Mohali,"Lalru APMC",Spinach,Other,Local,13/02/2026,500,500,500
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Mashrooms,Mashrooms,FAQ,13/02/2026,15500,16500,16000
+Kerala,Alappuzha,"Harippad APMC",Colacasia,Other,FAQ,13/02/2026,5500,6000,5500
+Kerala,Ernakulam,"Perumbavoor APMC",Lemon,Lemon,Medium,13/02/2026,5500,6100,5800
+Kerala,Kollam,"Chathanoor APMC","Little gourd(Kundru)",Other,FAQ,13/02/2026,3800,4200,4000
+Kerala,Kottayam,"Pampady APMC","Little gourd(Kundru)",Other,FAQ,13/02/2026,5000,6000,5500
+Kerala,Kollam,"Chathanoor APMC","Indian Beans(Seam)",Other,FAQ,13/02/2026,5800,6200,6000
+"Himachal Pradesh",Kangra,"SMY Palampur",Pomegranate,Pomogranate,Medium,13/02/2026,12000,13000,12500
+Punjab,Amritsar,"Rayya APMC","Peas Wet",Other,FAQ,13/02/2026,2000,2000,2000
+Punjab,"Ropar (Rupnagar)","Morinda APMC","Peas Wet","Peas Wet",Medium,13/02/2026,1500,2200,1850
+"West Bengal",Bankura,"Khatra APMC","Sweet Pumpkin","Sweet Pumpkin",Local,13/02/2026,2000,2700,2200
+Kerala,Kottayam,"Pampady APMC",Drumstick,Drumstick,FAQ,13/02/2026,10000,12000,11000
+Kerala,Alappuzha,"Harippad APMC",Capsicum,Capsicum,FAQ,13/02/2026,8000,8500,8000
+Odisha,Sundergarh,"Sargipali APMC",Capsicum,Other,FAQ,13/02/2026,3500,4000,3700
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Raddish,Raddish,FAQ,13/02/2026,1600,1800,1700
+Punjab,Amritsar,"Rayya APMC",Raddish,Other,FAQ,13/02/2026,320,320,320
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Cucumbar(Kheera),Cucumbar,FAQ,13/02/2026,4500,4800,4600
+Kerala,Kottayam,"Pampady APMC",Cucumbar(Kheera),Cucumbar,FAQ,13/02/2026,2500,3500,3000
+Kerala,Malappuram,"Perinthalmanna APMC",Beetroot,Beetroot,Large,13/02/2026,3200,3200,3200
+Kerala,Ernakulam,"Perumbavoor APMC",Snakeguard,Snakeguard,Medium,13/02/2026,3400,4100,3800
+Kerala,Kollam,"Chathanoor APMC",Snakeguard,Other,FAQ,13/02/2026,3300,3700,3500
+Kerala,Kottayam,"Pala APMC",Snakeguard,Other,FAQ,13/02/2026,4000,4800,4400
+Kerala,Ernakulam,"Perumbavoor APMC",Cabbage,Cabbage,Medium,13/02/2026,3000,3600,3300
+Kerala,Kozhikode(Calicut),"Kallachi APMC",Cabbage,Cabbage,FAQ,13/02/2026,2200,2600,2400
+Odisha,Sundergarh,"Sargipali APMC",Cabbage,Other,FAQ,13/02/2026,1000,1200,1100
+Punjab,Tarntaran,"Tarantaran APMC",Cabbage,Cabbage,Local,13/02/2026,1100,1100,1100
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Carrot,Carrot,FAQ,13/02/2026,1700,1800,1750
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Carrot,Carrot,Local,13/02/2026,1000,1000,1000
+Kerala,Idukki,"Kattappana APMC",Ginger(Green),Other,Small,13/02/2026,6500,6500,6500
+Kerala,Idukki,"Kattappana APMC",Ginger(Green),Other,Medium,13/02/2026,8000,8000,8000
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Ginger(Green),"Green Ginger",FAQ,13/02/2026,9000,9500,9200
+Kerala,Ernakulam,"Perumbavoor APMC",Tapioca,Tapioca,Local,13/02/2026,1400,2000,1700
+Odisha,Dhenkanal,"Hindol APMC","Banana - Green",Other,"Grade B",13/02/2026,2800,3000,2900
+Kerala,Kottayam,"Pampady APMC",Cowpea(Veg),"Cowpea (Veg)",FAQ,13/02/2026,6000,7000,6500
+"West Bengal",Hooghly,"Sheoraphuly APMC","Green Chilli","Green Chilly",FAQ,13/02/2026,8200,9000,8400
+Kerala,Ernakulam,"Perumbavoor APMC","Bhindi(Ladies Finger)",Bhindi,Medium,13/02/2026,3800,4500,4200
+Kerala,Kottayam,"Pala APMC","Bhindi(Ladies Finger)",Bhindi,FAQ,13/02/2026,4800,6000,5400
+Punjab,Amritsar,"Rayya APMC","Bhindi(Ladies Finger)",Bhindi,FAQ,13/02/2026,1090,1090,1090
+Kerala,Alappuzha,"Harippad APMC",Ashgourd,Other,FAQ,13/02/2026,3000,3500,3000
+Kerala,Ernakulam,"Perumbavoor APMC","Bitter gourd","Bitter Gourd",Medium,13/02/2026,4000,4600,4300
+Kerala,Alappuzha,"Harippad APMC","Bitter gourd",Other,FAQ,13/02/2026,5000,5500,5000
+"Uttar Pradesh",Ghazipur,"Jamanian APMC",Tomato,Tomato,Local,13/02/2026,800,900,850
+Gujarat,Amreli,"Damnagar APMC",Tomato,Local,Local,13/02/2026,3500,3500,3500
+Punjab,Amritsar,"Rayya APMC",Tomato,Other,FAQ,13/02/2026,1075,1075,1075
+Punjab,Tarntaran,"Tarantaran APMC",Tomato,Other,Local,13/02/2026,2300,2300,2300
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Papaya,Papaya,Medium,13/02/2026,4000,4000,4000
+Kerala,Kozhikode(Calicut),"Kallachi APMC",Brinjal,Brinjal,FAQ,13/02/2026,2800,3200,3000
+Odisha,Sundergarh,"Panposh APMC",Brinjal,Brinjal,FAQ,13/02/2026,1500,2500,2000
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Cauliflower,Cauliflower,FAQ,13/02/2026,1500,1700,1600
+Kerala,Kottayam,"Pampady APMC",Cauliflower,Cauliflower,FAQ,13/02/2026,5000,6000,5500
+Kerala,Alappuzha,"Harippad APMC",Cauliflower,Cauliflower,FAQ,13/02/2026,4000,4500,4000
+Nagaland,Dimapur,"Dimapur APMC",Cauliflower,Cauliflower,Local,13/02/2026,2500,3500,3000
+Gujarat,Amreli,"Damnagar APMC",Cauliflower,Cauliflower,Local,13/02/2026,3000,3000,3000
+Odisha,Sundergarh,"Sargipali APMC",Cauliflower,Other,FAQ,13/02/2026,1100,1400,1200
+"West Bengal",Hooghly,"Sheoraphuly APMC",Potato,Jyoti,FAQ,13/02/2026,960,1000,980
+Kerala,Kottayam,"Pala APMC",Potato,Other,FAQ,13/02/2026,2700,3600,3200
+Punjab,Amritsar,"Rayya APMC",Potato,Other,FAQ,13/02/2026,420,420,420
+Odisha,Sundergarh,"Sargipali APMC",Potato,Other,FAQ,13/02/2026,1200,1500,1300
+Kerala,Ernakulam,"Perumbavoor APMC",Onion,Onion,Medium,13/02/2026,2400,3200,2800
+"Himachal Pradesh",Kangra,"SMY Palampur",Onion,Onion,FAQ,13/02/2026,2200,2300,2250
+Kerala,Idukki,"Munnar APMC",Grapes,Green,Medium,13/02/2026,17000,17000,17000
+Kerala,Idukki,"Munnar APMC",Grapes,Black,Medium,13/02/2026,15000,15000,15000
+Kerala,Ernakulam,"Perumbavoor APMC",Pineapple,"Pine Apple",Medium,13/02/2026,4100,4800,4500
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Banana,"Banana - Ripe",Medium,13/02/2026,4700,5000,4800
+Kerala,Idukki,"Munnar APMC",Banana,"Nendra Bale",Medium,13/02/2026,4500,4500,4500
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Banana,Medium,Local,13/02/2026,3000,3000,3000
+Kerala,Kottayam,"Kottayam APMC",Banana,"Nendra Bale",Medium,13/02/2026,3600,4000,3800
+Kerala,Kottayam,"Kottayam APMC",Rice,Other,FAQ,13/02/2026,4600,5200,4900
+Gujarat,Amreli,"Damnagar APMC",Coriander(Leaves),Coriander,Local,13/02/2026,4500,4500,4500
+"Himachal Pradesh",Kangra,"SMY Palampur",Lemon,Other,FAQ,13/02/2026,6800,7000,6900
+Kerala,Ernakulam,"Perumbavoor APMC","Indian Beans(Seam)","Indian Beans (Seam)",Medium,13/02/2026,4800,5500,5200
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur","French Beans(Frasbean)","French Beans (Frasbean)",FAQ,13/02/2026,6200,6800,6500
+Kerala,Idukki,"Munnar APMC",Guava,Guava,Medium,13/02/2026,6000,6500,6233.33
+"Himachal Pradesh",Kangra,"SMY Palampur",Guava,Guava,Medium,13/02/2026,7000,9000,8000
+Punjab,Tarntaran,"Tarantaran APMC","Peas Wet",Other,Local,13/02/2026,2700,2700,2700
+Punjab,Moga,"Nihal Singh Wala APMC",Capsicum,Other,FAQ,13/02/2026,5500,5500,5500
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Capsicum,Capsicum,Medium,13/02/2026,5000,6000,5500
+"West Bengal",Hooghly,"Champadanga APMC",Cucumbar(Kheera),Cucumbar,FAQ,13/02/2026,5000,5500,5200
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Cucumbar(Kheera),Cucumbar,Medium,13/02/2026,3000,4500,3750
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Cucumbar(Kheera),Other,Medium,13/02/2026,800,1100,1100
+Kerala,Ernakulam,"Perumbavoor APMC",Beetroot,Beetroot,Medium,13/02/2026,2800,3500,3100
+Kerala,Idukki,"Kattappana APMC",Beetroot,Other,Small,13/02/2026,3800,3800,3800
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Cabbage,Cabbage,FAQ,13/02/2026,1100,1200,1150
+"Himachal Pradesh",Kangra,"SMY Palampur",Cabbage,Cabbage,FAQ,13/02/2026,1000,1100,1050
+Kerala,Ernakulam,"Perumbavoor APMC",Carrot,Carrot,Medium,13/02/2026,4000,4800,4400
+Kerala,Kozhikode(Calicut),"Kallachi APMC",Carrot,Carrot,FAQ,13/02/2026,3500,3900,3700
+Odisha,Sundergarh,"Sargipali APMC",Carrot,Other,FAQ,13/02/2026,2800,3000,2900
+Kerala,Ernakulam,"Perumbavoor APMC",Ginger(Green),"Green Ginger",Medium,13/02/2026,6500,7300,6900
+Gujarat,Amreli,"Damnagar APMC",Ginger(Green),"Green Ginger",Local,13/02/2026,5000,5000,5000
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Ginger(Green),"Green Ginger",Medium,13/02/2026,6000,7500,6750
+Kerala,Kottayam,"Pampady APMC","Banana - Green","Banana - Green",FAQ,13/02/2026,4500,5500,5000
+Kerala,Ernakulam,"Perumbavoor APMC",Cowpea(Veg),"Cowpea (Veg)",Large,13/02/2026,2400,3200,2800
+Kerala,Ernakulam,"Perumbavoor APMC","Green Chilli","Green Chilly",Medium,13/02/2026,5700,6300,6000
+Kerala,Kottayam,"Pala APMC","Green Chilli","Green Chilly",FAQ,13/02/2026,6500,10000,8500
+Odisha,Sundergarh,"Sargipali APMC","Green Chilli",Other,FAQ,13/02/2026,9500,9800,9600
+Punjab,"Ropar (Rupnagar)","Morinda APMC","Green Chilli","Green Chilly",Local,13/02/2026,7000,8000,7500
+Odisha,Dhenkanal,"Hindol APMC",Pumpkin,Pumpkin,"Grade B",13/02/2026,1600,1800,1700
+Kerala,Kollam,"Chathanoor APMC",Pumpkin,Other,FAQ,13/02/2026,3800,4200,4000
+Kerala,Kottayam,"Pampady APMC",Pumpkin,Pumpkin,FAQ,13/02/2026,3000,4000,3500
+Kerala,Ernakulam,"Kurumassery VFPCK APMC",Ashgourd,Ashgourd,"Grade A",13/02/2026,1800,2000,1900
+Kerala,Ernakulam,"Perumbavoor APMC",Ashgourd,Ashgourd,Medium,13/02/2026,1700,2300,2000
+Kerala,Idukki,"Kattappana APMC","Bitter gourd",Other,Medium,13/02/2026,5800,5800,5800
+Kerala,Kozhikode(Calicut),"Kallachi APMC","Bitter gourd","Bitter Gourd",FAQ,13/02/2026,3800,4200,4000
+Kerala,Kottayam,"Pala APMC","Cluster beans","Cluster Beans",FAQ,13/02/2026,5500,7000,6200
+Odisha,Dhenkanal,"Hindol APMC",Tomato,Tomato,"Grade B",13/02/2026,1700,2000,1800
+Punjab,Mohali,"Lalru APMC",Tomato,Deshi,Local,13/02/2026,1100,1100,1100
+"Himachal Pradesh",Kangra,"SMY Palampur",Tomato,Tomato,FAQ,13/02/2026,1700,1900,1800
+"Himachal Pradesh",Kangra,"SMY Palampur","Mousambi(Sweet Lime)",Mousambi,Medium,13/02/2026,4500,5000,4800
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur","Water Melon",Other,Medium,13/02/2026,5500,6000,5800
+Kerala,Idukki,"Munnar APMC",Chikoos(Sapota),Sapota,Medium,13/02/2026,5000,5000,5000
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Chikoos(Sapota),Sapota,Small,13/02/2026,4000,4000,4000
+Kerala,Ernakulam,"Perumbavoor APMC","Field Pea","Field Pea",Medium,13/02/2026,4100,4900,4500
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Methi(Leaves),Methi,Local,13/02/2026,700,1000,850
+"Himachal Pradesh",Kangra,"SMY Palampur",Coriander(Leaves),Coriander,FAQ,13/02/2026,3000,3500,3200
+Kerala,Ernakulam,"Perumbavoor APMC",Brinjal,Brinjal,Medium,13/02/2026,2800,3500,3200
+Kerala,Kollam,"Chathanoor APMC",Brinjal,Other,FAQ,13/02/2026,3800,4200,4000
+Kerala,Kottayam,"Pampady APMC",Brinjal,Brinjal,FAQ,13/02/2026,2500,3500,3000
+Punjab,Amritsar,"Rayya APMC",Brinjal,Brinjal,FAQ,13/02/2026,685,685,685
+"West Bengal",Hooghly,"Champadanga APMC",Brinjal,Brinjal,FAQ,13/02/2026,2000,2200,2100
+Punjab,Mohali,"Lalru APMC",Brinjal,Other,Local,13/02/2026,700,700,700
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Brinjal,Other,Medium,13/02/2026,700,1000,1000
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Cauliflower,Cauliflower,FAQ,13/02/2026,2200,2200,2200
+Punjab,Amritsar,"Rayya APMC",Cauliflower,Other,FAQ,13/02/2026,1100,1100,1100
+Odisha,Sundergarh,"Panposh APMC",Cauliflower,Local,FAQ,13/02/2026,2500,3200,3000
+"Himachal Pradesh",Kangra,"SMY Palampur",Cauliflower,Cauliflower,FAQ,13/02/2026,1400,1500,1450
+"West Bengal",Hooghly,"Sheoraphuly APMC",Ginger(Dry),Other,FAQ,13/02/2026,6000,7000,6500
+Punjab,Mohali,"Lalru APMC",Garlic,Average,Local,13/02/2026,9500,9500,9500
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Potato,Potato,FAQ,13/02/2026,1500,1500,1500
+"West Bengal",Hooghly,"Champadanga APMC",Potato,Jyoti,FAQ,13/02/2026,960,1000,980
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Potato,Other,Medium,13/02/2026,600,800,800
+"Himachal Pradesh",Kangra,"SMY Palampur",Potato,Potato,FAQ,13/02/2026,800,900,850
+Kerala,Kottayam,"Pala APMC",Onion,Onion,FAQ,13/02/2026,3600,4800,4200
+Kerala,Kottayam,"Pala APMC",Onion,Big,FAQ,13/02/2026,2600,3400,3000
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Onion,Red,FAQ,13/02/2026,1500,1500,1500
+"Himachal Pradesh",Kangra,"SMY Palampur",Grapes,Other,Medium,13/02/2026,12000,17000,15000
+"Himachal Pradesh",Kangra,"SMY Palampur",Pineapple,"Pine Apple",Medium,13/02/2026,4800,5000,4900
+Kerala,Idukki,"Munnar APMC",Mango,Other,Medium,13/02/2026,8000,8000,8000
+Kerala,Kollam,"Chathanoor APMC",Banana,"Red Banana",Medium,13/02/2026,5800,6200,6000
+Kerala,Kottayam,"Kottayam APMC",Banana,Palayamthodan,Medium,13/02/2026,2000,2400,2200
+Kerala,Idukki,"Munnar APMC",Orange,Other,Medium,13/02/2026,10000,10000,10000
+"Himachal Pradesh",Kangra,"SMY Palampur",Orange,Orange,Medium,13/02/2026,10000,12000,11000
+Kerala,Kottayam,"Kottayam APMC","Bengal Gram(Gram)(Whole)","Bengal Gram (Split)",FAQ,13/02/2026,7300,8400,7900
+Nagaland,Dimapur,"Dimapur APMC","Leafy Vegetable","Leafy Vegetables",Local,13/02/2026,2000,3000,2500
+Kerala,Idukki,"Munnar APMC",Coriander(Leaves),Coriander,Medium,13/02/2026,6000,6000,6000
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Spinach,Other,FAQ,13/02/2026,2000,2500,2200
+"Himachal Pradesh",Kangra,"SMY Palampur",Mashrooms,Mashrooms,FAQ,13/02/2026,15000,16000,15500
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Colacasia,Other,Medium,13/02/2026,1500,1800,1800
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Lemon,Lemon,Medium,13/02/2026,4500,5000,4750
+Punjab,"Ropar (Rupnagar)","Morinda APMC","French Beans(Frasbean)","French Beans (Frasbean)",Medium,13/02/2026,6000,6000,6000
+"Himachal Pradesh",Kangra,"SMY Palampur","French Beans(Frasbean)",Other,FAQ,13/02/2026,6000,6500,6200
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Guava,Guava,Local,13/02/2026,2500,2500,2500
+Kerala,Ernakulam,"Perumbavoor APMC",Drumstick,Drumstick,Large,13/02/2026,10000,17000,14500
+Punjab,Mohali,"Lalru APMC",Capsicum,Other,Local,13/02/2026,2400,2400,2400
+"Himachal Pradesh",Kangra,"SMY Palampur",Capsicum,Capsicum,FAQ,13/02/2026,5000,5500,5200
+Punjab,Mohali,"Lalru APMC",Raddish,Other,Local,13/02/2026,400,400,400
+Punjab,Tarntaran,"Tarantaran APMC",Raddish,Other,Local,13/02/2026,700,700,700
+Odisha,Dhenkanal,"Hindol APMC",Cucumbar(Kheera),Cucumbar,"Grade B",13/02/2026,4200,4500,4400
+"West Bengal",Bankura,"Khatra APMC",Cucumbar(Kheera),Cucumbar,Local,13/02/2026,3800,5000,4400
+"Himachal Pradesh",Kangra,"SMY Palampur",Cucumbar(Kheera),Cucumbar,FAQ,13/02/2026,4200,4500,4300
+Kerala,Kottayam,"Pala APMC",Beetroot,Beetroot,FAQ,13/02/2026,3300,6000,4800
+Kerala,Alappuzha,"Harippad APMC",Beetroot,Beetroot,FAQ,13/02/2026,5000,5500,5000
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Beetroot,Beetroot,Local,13/02/2026,2000,2000,2000
+"Himachal Pradesh",Kangra,"SMY Palampur",Beetroot,Beetroot,FAQ,13/02/2026,3500,4000,3800
+Kerala,Alappuzha,"Harippad APMC",Carrot,Other,FAQ,13/02/2026,5500,6000,5500
+"Himachal Pradesh",Kangra,"SMY Palampur",Carrot,Carrot,FAQ,13/02/2026,1600,1700,1650
+Punjab,Tarntaran,"Tarantaran APMC",Carrot,Other,Local,13/02/2026,850,850,850
+Kerala,Kollam,"Chathanoor APMC",Ginger(Green),Other,FAQ,13/02/2026,8800,9200,9000
+Kerala,Kottayam,"Pampady APMC",Ginger(Green),"Green Ginger",FAQ,13/02/2026,10000,12000,11000
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Ginger(Green),"Green Ginger",Medium,13/02/2026,2500,2800,2800
+Nagaland,Dimapur,"Dimapur APMC",Beans,Local,Local,13/02/2026,5500,6500,6000
+Kerala,Kottayam,"Pala APMC","Banana - Green","Banana - Green",FAQ,13/02/2026,3800,4600,4200
+Kerala,Kozhikode(Calicut),"Kallachi APMC","Banana - Green","Banana - Green",FAQ,13/02/2026,3300,3700,3500
+Kerala,Kottayam,"Pampady APMC","Green Chilli","Green Chilly",FAQ,13/02/2026,4000,5000,4500
+"Himachal Pradesh",Kangra,"SMY Palampur","Green Chilli","Green Chilly",FAQ,13/02/2026,10000,11000,10500
+Kerala,Alappuzha,"Harippad APMC",Amaranthus,Other,FAQ,13/02/2026,5000,5500,5000
+Odisha,Dhenkanal,"Hindol APMC","Bhindi(Ladies Finger)",Bhindi,"Grade B",13/02/2026,7000,7500,7200
+Kerala,Malappuram,"Perinthalmanna APMC","Bhindi(Ladies Finger)",Bhindi,Large,13/02/2026,3200,3200,3200
+Kerala,Idukki,"Kattappana APMC","Bhindi(Ladies Finger)",Other,Medium,13/02/2026,4400,4400,4400
+Kerala,Kollam,"Chathanoor APMC","Bhindi(Ladies Finger)",Other,FAQ,13/02/2026,6800,7200,7000
+Kerala,Alappuzha,"Harippad APMC","Bhindi(Ladies Finger)",Other,FAQ,13/02/2026,4000,4500,4000
+Punjab,"Ropar (Rupnagar)","Morinda APMC","Bhindi(Ladies Finger)",Bhindi,Local,13/02/2026,7000,7500,7250
+Kerala,Ernakulam,"Perumbavoor APMC",Pumpkin,Pumpkin,Medium,13/02/2026,1600,2200,1900
+Odisha,Sundergarh,"Sargipali APMC",Pumpkin,Pumpkin,FAQ,13/02/2026,800,1000,900
+Odisha,Sundergarh,"Panposh APMC",Pumpkin,Other,FAQ,13/02/2026,800,1200,1000
+Kerala,Idukki,"Kattappana APMC",Ashgourd,Other,Medium,13/02/2026,3500,3500,3500
+Uttarakhand,Dehradoon,"Vikasnagar APMC","Bottle gourd",Other,Medium,13/02/2026,700,900,900
+"Himachal Pradesh",Kangra,"SMY Palampur","Bottle gourd","Bottle Gourd",FAQ,13/02/2026,3500,4000,3800
+Kerala,Kollam,"Chathanoor APMC","Bitter gourd",Other,FAQ,13/02/2026,7800,8200,8000
+Kerala,Idukki,"Munnar APMC","Bitter gourd",Other,Medium,13/02/2026,6000,6000,6000
+Kerala,Idukki,"Munnar APMC","Cluster beans","Cluster Beans",Medium,13/02/2026,7000,7000,7000
+"West Bengal",Bankura,"Khatra APMC",Tomato,Tomato,Non-FAQ,13/02/2026,1800,2700,2200
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Tomato,Tomato,FAQ,13/02/2026,1800,2000,1900
+"Uttar Pradesh",Hathras,"Shadabad APMC",Tomato,Tomato,Small,13/02/2026,1200,1300,1250
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Tomato,Deshi,Medium,13/02/2026,1900,2300,2050
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Tomato,Other,Medium,13/02/2026,1800,2500,2300
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Papaya,Papaya,"Grade B",13/02/2026,2300,2300,2300
+Punjab,Mohali,"Lalru APMC",Methi(Leaves),Other,Local,13/02/2026,700,700,700
+"West Bengal",Bankura,"Khatra APMC",Brinjal,Round/Long,Medium,13/02/2026,2000,3000,2400
+Kerala,Malappuram,"Perinthalmanna APMC",Brinjal,Brinjal,Large,13/02/2026,3000,3008,3004.44
+"West Bengal",Hooghly,"Sheoraphuly APMC",Brinjal,Round/Long,FAQ,13/02/2026,2000,2200,2100
+Kerala,Alappuzha,"Harippad APMC",Brinjal,Brinjal,FAQ,13/02/2026,4500,5000,4500
+Odisha,Sundergarh,"Sargipali APMC",Brinjal,Brinjal,FAQ,13/02/2026,1000,1200,1100
+"Himachal Pradesh",Kangra,"SMY Palampur",Brinjal,Brinjal,FAQ,13/02/2026,2500,3000,2800
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Cauliflower,Cauliflower,Local,13/02/2026,1000,1200,1100
+Punjab,Mohali,"Lalru APMC",Cauliflower,Other,Local,13/02/2026,700,700,700
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Cauliflower,Other,Medium,13/02/2026,500,800,800
+Kerala,Ernakulam,"Perumbavoor APMC",Potato,Potato,Medium,13/02/2026,2500,3300,2900
+Kerala,Kollam,"Chathanoor APMC",Potato,Other,FAQ,13/02/2026,3400,3800,3600
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Potato,Potato,FAQ,13/02/2026,900,1000,950
+"West Bengal",Hooghly,"Sheoraphuly APMC",Potato,Other,FAQ,13/02/2026,760,800,780
+"Uttar Pradesh",Hathras,"Shadabad APMC",Potato,Potato,Small,13/02/2026,400,500,450
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Potato,Potato,Local,13/02/2026,560,600,580
+Punjab,Mohali,"Lalru APMC",Potato,Other,Local,13/02/2026,550,550,550
+Odisha,Dhenkanal,"Hindol APMC",Onion,Other,"Grade B",13/02/2026,1800,2200,2000
+Kerala,Kollam,"Chathanoor APMC",Onion,Other,FAQ,13/02/2026,3300,3700,3500
+Punjab,Amritsar,"Rayya APMC",Onion,Other,FAQ,13/02/2026,1210,1210,1210
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Onion,Onion,Medium,13/02/2026,1800,2200,2000
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Grapes,Green,Medium,13/02/2026,6000,7000,6500
+Kerala,Malappuram,"Mankada VFPCK APMC",Banana,"Nendra Bale",Local,13/02/2026,2500,2700,2600
+Kerala,Ernakulam,"Perumbavoor APMC",Banana,Palayamthodan,Medium,13/02/2026,2600,3400,3000
+Kerala,Kollam,"Chathanoor APMC",Banana,Palayamthodan,Medium,13/02/2026,3800,4200,4000
+Kerala,Kottayam,"Pala APMC",Banana,"Banana - Ripe",Large,13/02/2026,3300,4000,3600
+"West Bengal",Hooghly,"Champadanga APMC",Jute,Other,"TD 3 (FAQ)",13/02/2026,9300,9500,9400
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Spinach,Spinach,Local,13/02/2026,1400,1400,1400
+"Himachal Pradesh",Kangra,"SMY Palampur",Turnip,Turnip,FAQ,13/02/2026,1800,2000,1900
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Kinnow,Kinnow,Local,13/02/2026,3800,4000,3900
+"Himachal Pradesh",Kangra,"SMY Palampur",Kinnow,Kinnow,Medium,13/02/2026,4000,5000,4500
+Kerala,Kottayam,"Pampady APMC",Colacasia,Other,FAQ,13/02/2026,5000,6000,5500
+Kerala,Ernakulam,"Perumbavoor APMC","Little gourd(Kundru)",Other,Medium,13/02/2026,2700,3400,3000
+Kerala,Kottayam,"Pala APMC","Little gourd(Kundru)",Other,FAQ,13/02/2026,4500,5800,5200
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Yam(Ratalu),"Yam (Ratalu)",Medium,13/02/2026,5000,5500,5250
+Kerala,Ernakulam,"Perumbavoor APMC","Elephant Yam(Suran)/Amorphophallus",Other,Medium,13/02/2026,3300,3900,3600
+Kerala,Kottayam,"Pampady APMC","Elephant Yam(Suran)/Amorphophallus",Other,FAQ,13/02/2026,4000,5000,4500
+"Himachal Pradesh",Kangra,"SMY Palampur","Peas Wet","Peas Wet",FAQ,13/02/2026,2000,2800,2400
+Kerala,Ernakulam,"Perumbavoor APMC",Mango(Raw-Ripe),"Mango - Raw-Ripe",Medium,13/02/2026,5200,5900,5500
+Kerala,Kottayam,"Pampady APMC",Mango(Raw-Ripe),"Mango - Raw-Ripe",FAQ,13/02/2026,5000,6000,5500
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Raddish,Other,Medium,13/02/2026,500,700,700
+Kerala,Ernakulam,"Perumbavoor APMC",Cucumbar(Kheera),Cucumbar,Medium,13/02/2026,2700,3300,3000
+Punjab,Mohali,"Lalru APMC",Cucumbar(Kheera),Other,Local,13/02/2026,2000,2000,2000
+Kerala,Kollam,"Chathanoor APMC",Beetroot,Other,FAQ,13/02/2026,5800,6200,6000
+Kerala,Kozhikode(Calicut),"Kallachi APMC",Beetroot,Beetroot,FAQ,13/02/2026,3300,3700,3500
+Kerala,Kottayam,"Pampady APMC",Snakeguard,Snakeguard,FAQ,13/02/2026,4000,5000,4500
+Odisha,Dhenkanal,"Hindol APMC",Cabbage,Cabbage,"Grade B",13/02/2026,1700,2000,1800
+Kerala,Malappuram,"Perinthalmanna APMC",Cabbage,Cabbage,Large,13/02/2026,2600,2600,2600
+"West Bengal",Hooghly,"Sheoraphuly APMC",Cabbage,Cabbage,FAQ,13/02/2026,1100,1200,1200
+Kerala,Alappuzha,"Harippad APMC",Cabbage,Cabbage,FAQ,13/02/2026,4000,4500,4000
+Gujarat,Amreli,"Damnagar APMC",Cabbage,Cabbage,Local,13/02/2026,4000,4000,4000
+Kerala,Kollam,"Chathanoor APMC",Carrot,Other,FAQ,13/02/2026,5800,6200,6000
+Punjab,Mohali,"Lalru APMC",Carrot,Other,Local,13/02/2026,800,800,800
+Punjab,"Ropar (Rupnagar)","Morinda APMC","Sweet Potato","Sweet Potato",Medium,13/02/2026,2000,2000,2000
+Kerala,Kottayam,"Pampady APMC",Tapioca,Tapioca,FAQ,13/02/2026,2500,3500,3000
+Kerala,Idukki,"Kattappana APMC","Banana - Green",Other,Medium,13/02/2026,3000,3000,3000
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC","Green Chilli","Green Chilly",FAQ,13/02/2026,2700,2700,2700
+Nagaland,Dimapur,"Dimapur APMC","Green Chilli","Green Chilly",Local,13/02/2026,8000,10000,9000
+Gujarat,Amreli,"Damnagar APMC","Green Chilli","Green Chilly",Local,13/02/2026,4000,4000,4000
+Punjab,Amritsar,"Rayya APMC","Green Chilli","Green Chilly",FAQ,13/02/2026,1440,1440,1440
+Kerala,Kottayam,"Pampady APMC",Amaranthus,Amaranthus,FAQ,13/02/2026,3000,4500,3500
+Kerala,Malappuram,"Perinthalmanna APMC","Bhindi(Ladies Finger)",Bhindi,Local,13/02/2026,3200,3200,3200
+Uttarakhand,Dehradoon,"Vikasnagar APMC","Bhindi(Ladies Finger)",Other,Medium,13/02/2026,2500,2900,2900
+Kerala,Kottayam,"Pampady APMC",Ashgourd,Ashgourd,FAQ,13/02/2026,1500,2500,2000
+Kerala,Ernakulam,"Perumbavoor APMC","Bottle gourd","Bottle Gourd",Medium,13/02/2026,1900,2600,2300
+Kerala,Alappuzha,"Harippad APMC","Bottle gourd",Other,FAQ,13/02/2026,1500,2000,1500
+Kerala,Kozhikode(Calicut),"Kallachi APMC","Bottle gourd","Bottle Gourd",FAQ,13/02/2026,2800,3200,3000
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC","Bottle gourd","Bottle Gourd",FAQ,13/02/2026,1700,1700,1700
+Odisha,Sundergarh,"Panposh APMC","Bottle gourd",Other,FAQ,13/02/2026,2000,2400,2200
+Kerala,Kottayam,"Pampady APMC","Bitter gourd","Bitter Gourd",FAQ,13/02/2026,6000,7000,6500
+Kerala,Kottayam,"Pala APMC",Tomato,Other,FAQ,13/02/2026,4000,5000,4500
+Odisha,Sundergarh,"Panposh APMC",Tomato,Local,"Grade C",13/02/2026,1500,2400,2000
+Haryana,Gurgaon,"Gurgaon APMC",Tomato,Other,"Grade B",13/02/2026,800,1200,1000
+Uttarakhand,Dehradoon,"Vikasnagar APMC","Field Pea","Field Pea",Medium,13/02/2026,1300,2000,2000
+Odisha,Dhenkanal,"Hindol APMC",Brinjal,Brinjal,"Grade B",13/02/2026,2500,3500,3000
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Brinjal,Brinjal,FAQ,13/02/2026,1800,1800,1800
+Gujarat,Amreli,"Damnagar APMC",Brinjal,Other,Local,13/02/2026,4000,4000,4000
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Brinjal,Brinjal,Local,13/02/2026,1400,1400,1400
+Kerala,Ernakulam,"Perumbavoor APMC",Cauliflower,Cauliflower,Medium,13/02/2026,3500,4200,3900
+Kerala,Kozhikode(Calicut),"Kallachi APMC",Cauliflower,Other,FAQ,13/02/2026,4800,5200,5000
+Punjab,Tarntaran,"Tarantaran APMC",Cauliflower,Other,Local,13/02/2026,1300,1300,1300
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Garlic,Garlic,Local,13/02/2026,10000,14000,12000
+Odisha,Dhenkanal,"Hindol APMC",Potato,Potato,"Grade B",13/02/2026,1500,1700,1600
+"West Bengal",Bankura,"Khatra APMC",Potato,Jyoti,Non-FAQ,13/02/2026,600,680,650
+"West Bengal",Hooghly,"Champadanga APMC",Potato,Other,FAQ,13/02/2026,760,800,780
+Punjab,Tarntaran,"Tarantaran APMC",Potato,Other,Local,13/02/2026,500,500,500
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Onion,Other,FAQ,13/02/2026,2300,2400,2350
+"West Bengal",Hooghly,"Sheoraphuly APMC",Onion,Nasik,FAQ,13/02/2026,1500,2000,1800
+"Uttar Pradesh",Hathras,"Shadabad APMC",Onion,Onion,Small,13/02/2026,1200,1300,1250
+Kerala,Alappuzha,"Harippad APMC",Onion,Small,FAQ,13/02/2026,6000,6500,6000
+Odisha,Sundergarh,"Sargipali APMC",Onion,Other,FAQ,13/02/2026,2100,2400,2200
+Haryana,Gurgaon,"Gurgaon APMC",Onion,Other,"Grade B",13/02/2026,1000,2000,1500
+Punjab,Tarntaran,"Tarantaran APMC",Onion,Other,Local,13/02/2026,1900,1900,1900
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Grapes,Other,Medium,13/02/2026,12500,18000,15000
+Kerala,Thiruvananthapuram,"Parassala VFPCK APMC",Banana,"Red Banana","Grade A",13/02/2026,6300,6500,6400
+Kerala,Thiruvananthapuram,"Parassala VFPCK APMC",Banana,Banana-Organic,"Grade A",13/02/2026,3400,3600,3500
+Kerala,Ernakulam,"Perumbavoor APMC",Banana,Poovan,Medium,13/02/2026,4500,5200,5000
+Kerala,Kollam,"Chathanoor APMC",Banana,"Banana - Ripe",Medium,13/02/2026,4800,5200,5000
+Kerala,Idukki,"Munnar APMC",Banana,Robusta,Medium,13/02/2026,3500,3500,3500
+Kerala,Idukki,"Munnar APMC",Banana,Palayamthodan,Medium,13/02/2026,4000,4000,4000
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Banana,Medium,"Grade B",13/02/2026,1300,1300,1300
+"Himachal Pradesh",Kangra,"SMY Palampur",Banana,"Banana - Ripe",Medium,13/02/2026,4500,4800,4600
+Kerala,Kottayam,"Kottayam APMC",Banana,Poovan,Medium,13/02/2026,6500,6900,6700
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Orange,Orange,"Grade B",13/02/2026,5000,5000,5000
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Apple,Apple,Medium,13/02/2026,15500,18000,16500
+Kerala,Idukki,"Munnar APMC",Apple,Other,Medium,13/02/2026,16000,16000,16000
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Apple,Apple,Medium,13/02/2026,9000,9000,9000
+"Himachal Pradesh",Kangra,"SMY Palampur",Apple,Apple,Medium,13/02/2026,15000,17000,16000
+Kerala,Kottayam,"Kottayam APMC","Green Gram(Moong)(Whole)","Green (Whole)",FAQ,13/02/2026,9800,10800,10300
+Kerala,Kottayam,"Kottayam APMC","Black Gram(Urd Beans)(Whole)","Black Gram (Whole)",FAQ,13/02/2026,9600,11600,10600
+"West Bengal",Bankura,"Khatra APMC",Wheat,Sonalika,Non-FAQ,13/02/2026,2900,3200,3100
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Coriander(Leaves),Local,Local,13/02/2026,8000,8000,8000
+Gujarat,Narmada,"Rajpipla APMC",Banana,Other,Medium,13/02/2026,2050,2175,2100
+Kerala,Idukki,"Munnar APMC","Custard Apple(Sharifa)","Custard Apple(Sharifa)",Medium,13/02/2026,6000,6000,6000
+"Himachal Pradesh",Kangra,"SMY Palampur",Spinach,Spinach,FAQ,13/02/2026,1800,2200,2000
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Kinnow,Kinnow,Medium,13/02/2026,4500,5000,4800
+Kerala,Ernakulam,"Perumbavoor APMC",Colacasia,Other,Medium,13/02/2026,4100,4900,4500
+Gujarat,Amreli,"Damnagar APMC",Lemon,Lemon,Local,13/02/2026,5000,5000,5000
+Kerala,Kottayam,"Pampady APMC","Indian Beans(Seam)",Other,FAQ,13/02/2026,4500,5500,5000
+Punjab,"Ropar (Rupnagar)","Morinda APMC","Tender Coconut","Tender Coconut",Medium,13/02/2026,5000,5000,5000
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Pomegranate,Other,Medium,13/02/2026,12500,13000,12800
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur","Peas Wet","Peas Wet",FAQ,13/02/2026,2200,3000,2600
+Punjab,Mohali,"Lalru APMC","Peas Wet",Other,Local,13/02/2026,1400,1400,1400
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Capsicum,Capsicum,FAQ,13/02/2026,5200,5800,5500
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Raddish,Raddish,Local,13/02/2026,500,700,600
+"Himachal Pradesh",Kangra,"SMY Palampur",Raddish,Raddish,FAQ,13/02/2026,1500,1700,1600
+Odisha,Bargarh,"Attabira APMC",Raddish,Other,Local,13/02/2026,1000,1400,1200
+"West Bengal",Hooghly,"Sheoraphuly APMC",Cucumbar(Kheera),Cucumbar,FAQ,13/02/2026,5000,5500,5200
+Kerala,Kottayam,"Pala APMC",Cucumbar(Kheera),Cucumbar,FAQ,13/02/2026,4000,4800,4400
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Cucumbar(Kheera),Cucumbar,FAQ,13/02/2026,1700,1700,1700
+Punjab,Tarntaran,"Tarantaran APMC",Cucumbar(Kheera),Cucumbar,Local,13/02/2026,1400,1400,1400
+Kerala,Kollam,"Chathanoor APMC",Cabbage,Other,FAQ,13/02/2026,3300,3700,3500
+Kerala,Kottayam,"Pala APMC",Cabbage,Cabbage,FAQ,13/02/2026,3000,4000,3500
+Kerala,Kottayam,"Pampady APMC",Cabbage,Cabbage,FAQ,13/02/2026,4500,5500,5000
+Nagaland,Dimapur,"Dimapur APMC",Cabbage,Cabbage,Local,13/02/2026,1500,2500,2000
+Odisha,Sundergarh,"Panposh APMC",Cabbage,Other,FAQ,13/02/2026,2500,3500,3000
+Punjab,"Ropar (Rupnagar)","Morinda APMC",Cabbage,Cabbage,Local,13/02/2026,800,800,800
+Kerala,Kottayam,"Pala APMC",Carrot,Carrot,FAQ,13/02/2026,3300,5000,4200
+Punjab,Amritsar,"Rayya APMC",Carrot,Carrot,FAQ,13/02/2026,1400,1400,1400
+Punjab,Moga,"Nihal Singh Wala APMC",Carrot,Carrot,FAQ,13/02/2026,1200,1200,1200
+Odisha,Sundergarh,"Panposh APMC",Carrot,Other,FAQ,13/02/2026,3500,4200,4000
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Carrot,Carrot,Medium,13/02/2026,500,700,700
+"Himachal Pradesh",Kangra,"SMY Palampur",Ginger(Green),"Green Ginger",FAQ,13/02/2026,8500,9000,8800
+Kerala,Ernakulam,"Perumbavoor APMC","Banana - Green","Banana - Green",Medium,13/02/2026,3000,3600,3300
+Kerala,Alappuzha,"Harippad APMC","Banana - Green",Other,FAQ,13/02/2026,4000,4500,4000
+Kerala,Idukki,"Munnar APMC","Banana - Green","Banana - Green",Medium,13/02/2026,6000,6000,6000
+Kerala,Kottayam,"Pala APMC",Cowpea(Veg),"Cowpea (Veg)",FAQ,13/02/2026,3700,6000,4800
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur","Green Chilli","Green Chilly",FAQ,13/02/2026,11000,12000,11500
+Uttarakhand,Dehradoon,"Vikasnagar APMC","Green Chilli","Green Chilly",Medium,13/02/2026,1500,2700,2700
+Kerala,Ernakulam,"Perumbavoor APMC",Amaranthus,Amaranthus,Medium,13/02/2026,2000,2600,2300
+Kerala,Kozhikode(Calicut),"Kallachi APMC",Amaranthus,Amaranthus,FAQ,13/02/2026,3200,3600,3400
+Kerala,Kottayam,"Pampady APMC","Bhindi(Ladies Finger)",Bhindi,FAQ,13/02/2026,5000,6000,5500
+Kerala,Kozhikode(Calicut),"Kallachi APMC","Bhindi(Ladies Finger)",Other,FAQ,13/02/2026,4800,5200,5000
+Gujarat,Amreli,"Damnagar APMC","Bhindi(Ladies Finger)",Bhindi,Local,13/02/2026,4000,4000,4000
+Odisha,Sundergarh,"Panposh APMC","Bhindi(Ladies Finger)",Other,FAQ,13/02/2026,4500,5200,5000
+Uttarakhand,Dehradoon,"Vikasnagar APMC",Pumpkin,Pumpkin,Medium,13/02/2026,600,800,800
+Odisha,Bargarh,"Attabira APMC",Pumpkin,Other,Local,13/02/2026,800,1000,900
+Kerala,Malappuram,"Perinthalmanna APMC",Ashgourd,Ashgourd,Large,13/02/2026,1500,1500,1500
+Kerala,Kozhikode(Calicut),"Kallachi APMC",Ashgourd,Ashgourd,FAQ,13/02/2026,1800,2200,2000
+Kerala,Idukki,"Munnar APMC",Ashgourd,Other,Medium,13/02/2026,4000,4000,4000
+"West Bengal",Bankura,"Khatra APMC","Bottle gourd","Bottle Gourd",Local,13/02/2026,1400,2000,1600
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur","Bottle gourd","Bottle Gourd",FAQ,13/02/2026,3800,4500,4200
+Gujarat,Amreli,"Damnagar APMC","Bottle gourd","Bottle Gourd",Local,13/02/2026,5000,5000,5000
+Odisha,Dhenkanal,"Hindol APMC","Bitter gourd","Bitter Gourd","Grade B",13/02/2026,6000,6500,6200
+Kerala,Idukki,"Kattappana APMC","Bitter gourd",Other,Small,13/02/2026,4800,4800,4800
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC","Bitter gourd","Bitter Gourd",FAQ,13/02/2026,2200,2200,2200
+Kerala,Ernakulam,"Perumbavoor APMC",Tomato,Tomato,Medium,13/02/2026,3600,4400,4000
+Kerala,Kollam,"Chathanoor APMC",Tomato,Other,FAQ,13/02/2026,6800,7200,7000
+"West Bengal",Hooghly,"Sheoraphuly APMC",Tomato,Other,FAQ,13/02/2026,1400,1600,1500
+Kerala,Kottayam,"Pampady APMC",Tomato,Tomato,FAQ,13/02/2026,4500,5500,5000
+"Uttar Pradesh",Mau(Maunathbhanjan),"Kopaganj APMC",Tomato,Tomato,FAQ,13/02/2026,1800,1800,1800
+Odisha,Sundergarh,"Sargipali APMC",Tomato,Local,FAQ,13/02/2026,800,1200,1000
+"West Bengal",Hooghly,"Champadanga APMC",Tomato,Deshi,FAQ,13/02/2026,1400,1600,1500
+Odisha,Bargarh,"Attabira APMC",Tomato,Other,Local,13/02/2026,1000,1400,1200
+Gujarat,Amreli,"Damnagar APMC",Guar,Gwar,Local,13/02/2026,8500,8500,8500
+"Himachal Pradesh",Kangra,"SMY Palampur","Water Melon","Water Melon",Medium,13/02/2026,5000,5500,5200
+"Himachal Pradesh",Kangra,"SMY Palampur",Papaya,Papaya,Medium,13/02/2026,4000,4500,4200
+Odisha,Sundergarh,"Panposh APMC","Field Pea","Field Pea",FAQ,13/02/2026,2000,3000,2500
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Coriander(Leaves),Coriander,FAQ,13/02/2026,3500,4000,3800
+Kerala,Kottayam,"Pala APMC",Brinjal,Brinjal,FAQ,13/02/2026,4000,5000,4500
+Kerala,Idukki,"Munnar APMC",Cauliflower,Other,Medium,13/02/2026,6000,6000,6000
+"West Bengal",Bankura,"Khatra APMC",Potato,Other,Non-FAQ,13/02/2026,500,650,600
+Kerala,Kottayam,"Pampady APMC",Potato,Big,FAQ,13/02/2026,4500,5500,5000
+Haryana,Gurgaon,"Gurgaon APMC",Potato,Other,"Grade B",13/02/2026,500,700,600
+Punjab,Faridkot,"Kotkapura APMC",Potato,Potato,FAQ,13/02/2026,1000,1500,1200
+Kerala,Alappuzha,"Harippad APMC",Onion,Big,FAQ,13/02/2026,2500,3000,2500
+"West Bengal",Hooghly,"Champadanga APMC",Onion,Nasik,FAQ,13/02/2026,1500,2000,1800
+Punjab,Mohali,"Lalru APMC",Onion,Other,Local,13/02/2026,1600,1600,1600
+Kerala,Kollam,"Chathanoor APMC",Banana,Robusta,Medium,13/02/2026,3300,3700,3500
+Kerala,Kollam,"Chathanoor APMC",Banana,Poovan,Medium,13/02/2026,5800,6200,6000
+Kerala,Idukki,"Munnar APMC",Banana,Poovan,Local,13/02/2026,7000,7000,7000
+"Himachal Pradesh",Kangra,"SMY Jaisinghpur",Orange,Other,Medium,13/02/2026,11000,13000,12000
+"West Bengal",Bankura,"Khatra APMC",Mustard,Mustard,Non-FAQ,13/02/2026,6000,6700,6400
+"West Bengal",Bankura,"Khatra APMC",Rice,Common,Local,13/02/2026,3600,3800,3700
+"West Bengal",Hooghly,"Sheoraphuly APMC",Rice,Masuri,FAQ,13/02/2026,3240,3270,3260
+"West Bengal",Hooghly,"Champadanga APMC",Rice,Fine,FAQ,13/02/2026,4750,4800,4800
+"West Bengal",Bankura,"Khatra APMC",Paddy(Common),"Swarna Masuri (New)",Non-FAQ,13/02/2026,2300,2389,2369
+"Uttar Pradesh",Balrampur,"Panchpedwa APMC",Paddy(Common),Paddy,FAQ,13/02/2026,2200,2350,2300

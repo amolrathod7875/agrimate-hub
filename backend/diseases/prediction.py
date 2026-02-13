@@ -30,28 +30,82 @@ class DiseasePredictionEngine:
             
             model_path = Path(settings.BASE_DIR) / 'plant_disease_model.h5'
             
-            # Try loading with custom_objects to handle compatibility issues
-            try:
-                self.model = keras.models.load_model(str(model_path), compile=False)
-            except Exception as e1:
-                # Try alternative loading method
-                try:
-                    # Load weights separately if model architecture issue
-                    self.model = keras.models.load_model(str(model_path))
-                except Exception as e2:
-                    print(f"⚠ Could not load model with standard methods: {e1}")
-                    print(f"   Alternative method also failed: {e2}")
-                    print("   Please re-save your model with: model.save('plant_disease_model.h5', save_format='h5')")
-                    self.model = None
-                    return
+            # Check TensorFlow version
+            tf_version = tuple(int(x) for x in tf.__version__.split('.')[:2])
+            print(f"✓ TensorFlow version: {tf.__version__}")
             
-            # Recompile the model
+            # Custom LSTM class to handle batch_shape deprecation
+            class CustomLSTM(keras.layers.LSTM):
+                def __init__(self, *args, **kwargs):
+                    # Remove batch_shape from kwargs if present
+                    kwargs.pop('batch_shape', None)
+                    super().__init__(*args, **kwargs)
+            
+            custom_objects = {'LSTM': CustomLSTM}
+            
+            # Try multiple loading methods
+            loaded = False
+            
+            # Method 1: Standard loading with custom_objects
+            try:
+                self.model = keras.models.load_model(
+                    str(model_path), 
+                    compile=False,
+                    custom_objects=custom_objects
+                )
+                loaded = True
+                print("✓ Model loaded successfully with custom LSTM")
+            except Exception as e1:
+                print(f"Method 1 failed: {e1}")
+            
+            # Method 2: Try with tf.compat.v1 for older models
+            if not loaded:
+                try:
+                    tf.compat.v1.disable_eager_execution()
+                    self.model = keras.models.load_model(
+                        str(model_path), 
+                        compile=False,
+                        custom_objects=custom_objects
+                    )
+                    loaded = True
+                    print("✓ Model loaded successfully with tf.compat.v1")
+                except Exception as e2:
+                    print(f"Method 2 failed: {e2}")
+            
+            # Method 3: Load architecture and weights separately
+            if not loaded:
+                try:
+                    # First, try to get model config
+                    from tensorflow.keras.models import model_from_json
+                    
+                    # This is a fallback - the model.json should exist alongside .h5
+                    config_path = Path(settings.BASE_DIR) / 'plant_disease_model.json'
+                    weights_path = Path(settings.BASE_DIR) / 'plant_disease_model_weights.h5'
+                    
+                    if config_path.exists() and weights_path.exists():
+                        with open(str(config_path), 'r') as json_file:
+                            model_json = json_file.read()
+                        self.model = model_from_json(model_json, custom_objects=custom_objects)
+                        self.model.load_weights(str(weights_path))
+                        loaded = True
+                        print("✓ Model loaded from architecture + weights")
+                    else:
+                        raise FileNotFoundError("Model config or weights file not found")
+                except Exception as e3:
+                    print(f"Method 3 failed: {e3}")
+            
+            # Recompile the model if loaded successfully
             if self.model:
                 self.model.compile(
                     optimizer='adam',
                     loss='categorical_crossentropy',
                     metrics=['accuracy']
                 )
+                print(f"✓ Model compiled successfully")
+            else:
+                print("⚠ All model loading methods failed")
+                self.model = None
+                return
             
             # Define class names (update this list based on your model's training classes)
             # These are common plant diseases from PlantVillage dataset

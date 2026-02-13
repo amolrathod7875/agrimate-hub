@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, AllowAny
 from .models import Disease, DiseasePrediction
 from .serializers import DiseaseSerializer, DiseasePredictionSerializer
 from .prediction import predict_plant_disease
@@ -26,15 +26,28 @@ class DiseaseViewSet(viewsets.ModelViewSet):
 class DiseasePredictionViewSet(viewsets.ModelViewSet):
     queryset = DiseasePrediction.objects.all()
     serializer_class = DiseasePredictionSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]  # Allow read-only for testing
+    permission_classes = [AllowAny]
+    authentication_classes = []  # Disable authentication for this endpoint
     
     def get_queryset(self):
-        """Filter predictions for current user"""
-        if self.request.user.is_authenticated:
-            if self.request.user.is_staff:
-                return DiseasePrediction.objects.all()
-            return DiseasePrediction.objects.filter(user=self.request.user)
-        return DiseasePrediction.objects.none()
+        """Filter predictions for current user, or return all for anonymous during creation"""
+        # For list/retrieve, filter by user
+        if self.action in ['list', 'retrieve', 'update', 'partial_update', 'destroy']:
+            if self.request.user.is_authenticated:
+                if self.request.user.is_staff:
+                    return DiseasePrediction.objects.all()
+                return DiseasePrediction.objects.filter(user=self.request.user)
+            return DiseasePrediction.objects.none()
+        # For create, allow all
+        return DiseasePrediction.objects.all()
+    
+    def create(self, request, *args, **kwargs):
+        """Override create to ensure it works for anonymous users"""
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
     
     def perform_create(self, serializer):
         """Process disease prediction using CNN model"""
