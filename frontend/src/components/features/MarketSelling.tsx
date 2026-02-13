@@ -65,9 +65,45 @@ const MarketSelling = () => {
   };
 
   const handleLocation = () => {
-    setState("Maharashtra");
-    setDistrict("Pune");
-    handleSearch();
+    // Use browser geolocation and reverse-geocode to derive state/district
+    if (!navigator.geolocation) {
+      setMarketsError('Geolocation is not supported by your browser.');
+      return;
+    }
+
+    setMarketsLoading(true);
+    setMarketsError(null);
+
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+          // Reverse geocode using Nominatim (OpenStreetMap)
+          const resp = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
+          if (!resp.ok) throw new Error('Reverse geocode failed');
+          const json = await resp.json();
+          const addr = json.address || {};
+          const stateName = addr.state || addr.region || addr.state_district || '';
+          const districtName = addr.county || addr.district || addr.city_district || addr.city || addr.town || '';
+          if (stateName) setState(stateName);
+          if (districtName) setDistrict(districtName);
+          // Trigger search using discovered location
+          await handleSearch();
+        } catch (err) {
+          console.error('Location reverse-geocode error', err);
+          setMarketsError('Failed to determine your location.');
+        } finally {
+          setMarketsLoading(false);
+        }
+      },
+      (err) => {
+        console.error('Geolocation error', err);
+        setMarketsError('Unable to access your location. Please allow location access.');
+        setMarketsLoading(false);
+      },
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
   };
 
   const handleFetchMarkets = async (stateParam?: any, districtParam?: any) => {
@@ -182,6 +218,12 @@ const MarketSelling = () => {
     }
   };
 
+  const openInMaps = (marketName: string, stateParam?: string, districtParam?: string) => {
+    const q = [marketName, districtParam, stateParam].filter(Boolean).join(' ');
+    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       <div>
@@ -281,8 +323,11 @@ const MarketSelling = () => {
                   <div className="font-bold">{m.market} {(m as any).synthetic && <span className="ml-2 px-2 py-0.5 text-xs font-semibold rounded bg-yellow-100 text-yellow-800">AI</span>}</div>
                   <div className="text-sm text-muted-foreground">{m.district}{m.district ? ', ' : ''}{m.state}</div>
                 </div>
-                <div>
+                <div className="flex items-center gap-2">
                   <Button size="sm" onClick={() => handleViewMarket(m.market, m.state, m.district)}>View</Button>
+                  <Button size="sm" variant="outline" onClick={() => openInMaps(m.market, m.state, m.district)}>
+                    <MapPin className="w-4 h-4 mr-2" /> Map
+                  </Button>
                 </div>
               </CardContent>
             </Card>
