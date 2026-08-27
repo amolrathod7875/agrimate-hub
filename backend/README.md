@@ -1,205 +1,118 @@
-# Agri Sahayak Backend
+# AgriMate Hub — Backend
 
-Django REST API backend for the Agri Sahayak agricultural assistance platform with integrated ML models.
+> Django REST API backend for the AgriMate Hub agricultural assistance platform, with integrated machine-learning models for crop recommendation and plant-disease detection.
 
-## Features
+## Project Overview
 
-- **User Management**: Custom user model with farmer profiles
-- **Crop Recommendations**: ✨ **ML-powered** crop suggestions using Random Forest (model.pkl)
-- **Disease Prediction**: ✨ **CNN-based** plant disease detection using TensorFlow (plant_disease_model.h5)
-- **Government Schemes**: Browse agricultural schemes and subsidies
-- **Mandi Prices**: Real-time market prices with price alerts
-- **Marketplace**: Buy and sell agricultural produce directly
+Farmers need timely, data-driven guidance on **what to grow** and **what is wrong with their crops**, plus market and scheme information. The backend provides the intelligence layer of AgriMate Hub: it serves structured data through a REST API and runs two trained ML models that turn raw inputs (soil metrics, leaf images) into actionable recommendations. It also integrates with India's Open Government Data (`data.gov.in`) platform to surface live mandi prices.
+
+## Solution
+
+The backend is a **Django 5** project (`agri_sahayak`) composed of focused Django apps, each owning a domain:
+
+- **`users`** — Custom user model (`AUTH_USER_MODEL = 'users.User'`) and farmer profiles, with session-based authentication.
+- **`crops`** — Crop master data plus crop recommendation. `crops/recommendation.py` loads `model.pkl` (a scikit-learn **Random Forest**) and predicts the top suitable crops from N, P, K, temperature, humidity, pH, rainfall, and state.
+- **`diseases`** — Plant-disease detection. `diseases/prediction.py` loads `plant_disease_model.h5` (a TensorFlow/Keras **CNN**) and classifies leaf images, returning the disease and confidence.
+- **`schemes`** — Government schemes/subsidies browseable by category and state.
+- **`mandi`** — Mandi (market) prices and price alerts, sourced from the `data.gov.in` mandi resource.
+- **`market`** — Marketplace listings and product inquiries for buying/selling produce.
+
+### Key behaviors
+- **Model auto-loading on startup** with graceful fallback to rule-based logic when a model or external API is unavailable.
+- **CORS** (`django-cors-headers`) trusts the frontend dev origins (`localhost:5173`, `:8080`).
+- **External data**: mandi prices are fetched from `data.gov.in` using the configured API key/resource; an optional OpenAI key provides LLM fallback.
+- **Media handling**: uploaded leaf images are stored under `MEDIA_ROOT`.
 
 ## Tech Stack
 
-- Django 5.0
-- Django REST Framework
-- **scikit-learn** - Crop recommendation (Random Forest)
-- **TensorFlow/Keras** - Disease prediction (CNN)
-- SQLite (development) / PostgreSQL (production recommended)
-- Python 3.10+
+- **Python 3.10+**
+- **Django 5.0** + **Django REST Framework 3.14+**
+- **django-cors-headers** (cross-origin requests)
+- **scikit-learn** + **joblib** (Random Forest crop model)
+- **TensorFlow < 2.11** + **Keras** + **h5py** (CNN disease model; pinned with `numpy < 1.24` for TF 2.10 compatibility on Windows)
+- **Pillow** (image processing), **pandas / NumPy < 1.24 / SciPy** (data)
+- **spectral** (hyperspectral utilities), **matplotlib / seaborn / tqdm** (analysis & training tooling)
+- **SQLite** (development database; PostgreSQL recommended for production)
+- Optional: **FastAPI / uvicorn / python-multipart** (additional API surface), **python-decouple** (`.env` config), **jupyterlab** (notebooks such as `mandai_mart.ipynb`), **requests** (external HTTP)
 
-## Project Structure
+## Setup and Installation
 
-```
-backend/
-├── agri_sahayak/       # Main project settings
-├── users/              # User authentication and profiles
-├── crops/              # Crop master data and recommendations
-├── diseases/           # Disease detection and management
-├── schemes/            # Government schemes
-├── mandi/              # Market prices and alerts
-├── market/             # Marketplace for buying/selling
-├── manage.py
-└── requirements.txt
-```
+### Prerequisites
+- Python 3.10 or newer
+- `pip` and (recommended) a virtual environment
 
-## Installation
-
-### 1. Create Virtual Environment
-
+### Steps
 ```bash
+# 1. Move into the backend directory
 cd backend
+
+# 2. Create and activate a virtual environment
 python -m venv venv
-```
+venv\Scripts\activate            # Windows
+# source venv/bin/activate       # Linux / macOS
 
-### 2. Activate Virtual Environment
-
-**Windows:**
-```bash
-venv\Scripts\activate
-```
-
-**Linux/Mac:**
-```bash
-source venv/bin/activate
-```
-
-### 3. Install Dependencies
-
-```bash
+# 3. Install dependencies
 pip install -r requirements.txt
-```
 
-### 4. Run Migrations
-
-```bash
-python manage.py makemigrations
+# 4. Apply database migrations
 python manage.py migrate
-```
 
-### 5. Create Superuser
-
-```bash
+# 5. (Optional) Create an admin user
 python manage.py createsuperuser
+
+# 6. Start the development server
+python manage.py runserver       # http://localhost:8000
 ```
 
-### 6. Run Development Server
-
-```bash
-python manage.py runserver
-```
-
-The API will be available at `http://localhost:8000`
-
-**✅ Check Console Output**: You should see confirmation that ML models are loaded:
+On startup you should see confirmation that the ML models loaded:
 ```
 ✓ Crop recommendation model loaded successfully
 ✓ Disease prediction model loaded successfully
 ```
 
-### 7. Test ML Models (Optional)
+### Useful scripts
+- `setup_db.bat` / `reset_db.bat` — provision / reset the local database (Windows).
+- `start_server.bat` — convenience server launcher.
+- `test_models.bat`, `test_api.py`, `test_api_consistency.py` — verify ML models and endpoints.
+- `python manage.py test_crop_model` — sanity-check the crop model.
+- `train_model.py` — retrain/inspect the crop recommendation model.
 
-```bash
-python manage.py test_crop_model
-```
-
-See [ML_MODELS_GUIDE.md](ML_MODELS_GUIDE.md) for detailed ML setup and testing.
+### Configuration
+Key settings live in `agri_sahayak/settings.py`:
+- `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS` — security basics (change for production).
+- `DATABASES` — switch to PostgreSQL for production.
+- `CORS_ALLOWED_ORIGINS` / `CSRF_TRUSTED_ORIGINS` — frontend URLs.
+- `DATA_GOV_API_KEY` / `MANDI_API_KEY` / `MANDI_API_URL` — live price data (or set via `backend/.env`).
+- `OPENAI_API_KEY` — optional LLM fallback.
 
 ## API Endpoints
 
-### Users
-- `GET/POST /api/users/` - List/create users
-- `GET /api/users/me/` - Get current user
-- `GET/POST /api/users/profiles/` - Farmer profiles
+Base URL: `http://localhost:8000`
 
-### Crops
-- `GET/POST /api/crops/` - List/create crops
-- `GET /api/crops/by_season/?season=kharif` - Filter by season
-- `POST /api/crops/recommendations/` - Get crop recommendations
+| Area | Endpoint | Methods |
+|------|----------|---------|
+| Root | `/` | GET (endpoint map) |
+| Admin | `/admin/` | GET |
+| Users | `/api/users/`, `/api/users/me/`, `/api/users/profiles/` | GET/POST |
+| Crops | `/api/crops/`, `/api/crops/by_season/`, `/api/crops/recommendations/` | GET/POST |
+| Diseases | `/api/diseases/`, `/api/diseases/by_crop/`, `/api/diseases/predictions/` | GET/POST |
+| Schemes | `/api/schemes/`, `/api/schemes/by_category/`, `/api/schemes/by_state/` | GET/POST |
+| Mandi | `/api/mandi/prices/`, `/api/mandi/prices/latest/`, `/api/mandi/prices/statistics/`, `/api/mandi/alerts/` | GET/POST |
+| Market | `/api/market/listings/`, `/api/market/listings/my_listings/`, `/api/market/inquiries/` | GET/POST |
 
-### Diseases
-- `GET/POST /api/diseases/` - List/create diseases
-- `GET /api/diseases/by_crop/?crop_id=1` - Filter by crop
-- `POST /api/diseases/predictions/` - Submit disease prediction
-
-### Government Schemes
-- `GET/POST /api/schemes/` - List/create schemes
-- `GET /api/schemes/by_category/?category=subsidy` - Filter by category
-- `GET /api/schemes/by_state/?state=Punjab` - Filter by state
-
-### Mandi Prices
-- `GET/POST /api/mandi/prices/` - List/create prices
-- `GET /api/mandi/prices/latest/?crop_id=1` - Latest prices for crop
-- `GET /api/mandi/prices/statistics/?crop_id=1` - Price statistics
-- `GET/POST /api/mandi/alerts/` - Price alerts
-
-### Market
-- `GET/POST /api/market/listings/` - List/create product listings
-- `GET /api/market/listings/my_listings/` - User's listings
-- `POST /api/market/listings/{id}/mark_sold/` - Mark as sold
-- `GET/POST /api/market/inquiries/` - Product inquiries
-
-## Admin Panel
-
-Access the Django admin panel at `http://localhost:8000/admin/` with your superuser credentials.
-
-## ML Models
-
-The backend includes two trained ML models:
-
-1. **model.pkl** - Random Forest for crop recommendation
-   - Input: N, P, K, temperature, humidity, pH, rainfall
-   - Output: Top 5 crop recommendations with confidence scores
-
-2. **plant_disease_model.h5** - CNN for disease prediction
-   - Input: Plant leaf image (224x224 RGB)
-   - Output: Disease classification with confidence
-
-**See [ML_MODELS_GUIDE.md](ML_MODELS_GUIDE.md) for complete documentation.**
-
-## Configuration
-
-Key settings in `agri_sahayak/settings.py`:
-
-- **SECRET_KEY**: Change in production
-- **DEBUG**: Set to False in production
-- **ALLOWED_HOSTS**: Add production domains
-- **DATABASES**: Configure PostgreSQL for production
-- **CORS_ALLOWED_ORIGINS**: Frontend URL
-
-## Sample Data
-
-To populate the database with sample data, you can use the Django admin panel or create management commands.
-
-## API Authentication
-
-Currently using Session Authentication. For production, consider adding:
-- JWT tokens (djangorestframework-simplejwt)
-- API key authentication
-- OAuth2
-
-## Next Steps
-
-1. Integrate ML models for:
-   - Crop recommendation
-   - Disease prediction
-2. Add real-time price updates
-3. Implement notifications system
-4. Add image processing for disease detection
-5. Integrate payment gateway for marketplace
-6. Add search and filtering capabilities
-7. Implement caching (Redis)
-8. Add automated testing
-
-## Development
-
-### Running Tests
+### Example requests
 ```bash
-python manage.py test
+# Crop recommendation
+curl -X POST http://127.0.0.1:8000/api/crops/recommendations/ \
+  -H "Content-Type: application/json" \
+  -d "{\"nitrogen\":90,\"phosphorus\":42,\"potassium\":43,\"temperature\":20.8,\"humidity\":82.0,\"ph\":6.5,\"rainfall\":202.9,\"state\":\"Punjab\"}"
+
+# Disease prediction (multipart image upload)
+curl -X POST http://127.0.0.1:8000/api/diseases/predictions/ \
+  -F "plant_image=@path/to/leaf.jpg"
 ```
 
-### Creating Migrations
-```bash
-python manage.py makemigrations
-```
-
-### Collecting Static Files
-```bash
-python manage.py collectstatic
-```
-
-## License
-
-MIT
+## Notes
+- The trained artifacts `model.pkl` and `plant_disease_model.h5` must remain in this directory.
+- TensorFlow is pinned to `<2.11` with `numpy<1.24` for Windows GPU support; use `tensorflow-cpu==2.10.0` if you hit GPU/driver issues.
+- See `ML_MODELS_GUIDE.md` and `QUICK_START.md` in this folder for deeper ML and integration details.

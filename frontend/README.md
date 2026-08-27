@@ -1,73 +1,93 @@
-# Welcome to your Lovable project
+# AgriMate Hub — Frontend
 
-## Project info
+> React single-page application for AgriMate Hub: a farmer-facing dashboard for crop recommendations, disease prediction, mandi prices, government schemes, and a produce marketplace.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Project Overview
 
-## How can I edit this code?
+The frontend is the user-facing side of AgriMate Hub. Farmers need an interface that is simple, fast, and visually clear across agriculture, horticulture, and floriculture domains. This SPA delivers that experience: a landing page that routes into a category-aware dashboard, where each feature module presents agricultural intelligence through forms, charts, and cards. It is designed to consume the Django REST API (see `backend/`) while currently shipping with mock data for standalone development and demos.
 
-There are several ways of editing your application.
+## Solution
 
-**Use Lovable**
+The frontend is a **Vite + React + TypeScript** application structured for clarity and reuse:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Routing & layout** — `App.tsx` sets up `react-router-dom` with a landing route (`/`) and a dashboard route (`/dashboard/:category`). A top-level `ProfileProvider` (React Context) holds the active farmer profile, and `TanStack Query` manages server-state.
+- **Category theming** — The dashboard supports three domains (Agriculture, Horticulture, Floriculture), each with its own color theme and sidebar styling.
+- **Feature modules** (in `src/components/features/`):
+  - `CropRecommendation` — soil/nutrient inputs (N, P, K, temperature, humidity, pH, rainfall) rendered with sliders and progress rings; returns recommended crops.
+  - `DiseasePrediction` — leaf-image upload flow for disease detection.
+  - `GovernmentSchemes` — browseable schemes/subsidies.
+  - `MandiPrice` — market price display with trend charts.
+  - `MarketSelling` — produce listing/inquiry UI.
+  - `Profile` — farmer profile management.
+- **UI system** — A comprehensive **shadcn/ui** component library (built on Radix UI primitives) in `src/components/ui/` provides buttons, cards, dialogs, forms, charts, and more, styled with **Tailwind CSS**.
+- **Mock data layer** — `src/data/mockData.ts` provides Indian states/districts and sample results so the UI runs without a backend; feature components import from it (e.g. `cropResults`), ready to be swapped for live API calls.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Interaction with the backend
+The SPA is intended to call the Django REST API at `http://localhost:8000` (endpoints like `/api/crops/recommendations/` and `/api/diseases/predictions/`). CORS on the backend already whitelists the frontend's dev origins. The `mockData` layer is the integration seam: replace mock imports with `fetch`/TanStack Query calls to the API.
 
-**Use your preferred IDE**
+## Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **React 18** + **TypeScript**
+- **Vite 5** + `@vitejs/plugin-react-swc` (dev server & bundler)
+- **Tailwind CSS 3** + `tailwindcss-animate`, `@tailwindcss/typography`
+- **shadcn/ui** component kit built on **Radix UI** primitives (accordion, dialog, dropdown, select, tabs, toast, tooltip, etc.)
+- **class-variance-authority**, **clsx**, **tailwind-merge** (variant/class utilities)
+- **react-router-dom 7** (routing)
+- **@tanstack/react-query 5** (data fetching/caching)
+- **framer-motion** (animations), **recharts** (charts), **lucide-react** (icons)
+- **react-hook-form** + **@hookform/resolvers** + **zod** (forms & schema validation)
+- **cmdk** (command palette), **date-fns**, **react-day-picker**, **embla-carousel-react**, **sonner**, **vaul**, **input-otp`, **next-themes**
+- **Vitest** + **@testing-library/react** + **jsdom** (testing), **ESLint** (linting)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Setup and Installation
 
-Follow these steps:
+### Prerequisites
+- Node.js 18+ (or use **Bun** — a `bun.lockb` is included)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Steps
+```bash
+# 1. Move into the frontend directory
+cd frontend
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Install dependencies
+npm install
+# (or: bun install)
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 3. Start the development server
 npm run dev
+# (or: bun run dev)
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:5173` (Vite) or `http://localhost:8080` depending on configuration.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Available scripts
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start the Vite dev server with HMR |
+| `npm run build` | Production build into `dist/` |
+| `npm run build:dev` | Development-mode build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run unit tests once (Vitest) |
+| `npm run test:watch` | Run tests in watch mode |
 
-**Use GitHub Codespaces**
+## Project Structure
+```
+frontend/
+├── index.html
+├── vite.config.ts
+├── tailwind.config.ts
+├── src/
+│   ├── main.tsx              # App bootstrap
+│   ├── App.tsx               # Router + providers
+│   ├── pages/                # Landing, Dashboard, NotFound
+│   ├── components/
+│   │   ├── features/         # Crop, Disease, Schemes, Mandi, Market, Profile
+│   │   └── ui/               # shadcn/ui component library
+│   ├── contexts/             # ProfileContext (farmer profile)
+│   ├── data/                 # mockData.ts
+│   ├── hooks/                # use-toast, use-mobile
+│   └── lib/                  # utils (cn, etc.)
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+For backend integration details and API contracts, see [../backend/README.md](../backend/README.md).
